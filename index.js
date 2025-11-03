@@ -21,13 +21,13 @@ async function fetchProducts() {
       const anchor = document.createElement("a");
 
       card.className = "card"; //assigning class names for use in CSS
+      card.classList.add("fill-img");
       image.className = "image";
       content.className = "content";
       title.className = "title";
       price.className = "price";
       discountedPrice.className = "discounted-price";
       rating.className = "rating";
-      reviews.className = "reviews";
 
       image.src = product.image.url; //setting the content of each element based on the product data
       image.alt = product.image.alt;
@@ -44,7 +44,6 @@ async function fetchProducts() {
       card.appendChild(image);
       card.appendChild(content);
       card.appendChild(rating);
-      card.appendChild(reviews);
       anchor.appendChild(card);
 
       container.appendChild(anchor);
