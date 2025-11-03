@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap");
+
+* {
+  font-family: "GFS Didot", Verdana, Geneva, Tahoma, sans-serif;
+}
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
