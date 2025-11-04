@@ -3,6 +3,15 @@
 * {
   font-family: "GFS Didot", Verdana, Geneva, Tahoma, sans-serif;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  
+  align-items: center;
+}
+
 main {
   max-width: 1200px;
   margin: 0 auto;
@@ -42,7 +51,7 @@ img.displaySlide {
   margin: 0 auto;
   object-fit: contain;
   animation-name: fadeIn;
-  animation-duration: 1.5s;
+  animation-duration: 2s;
 }
 
 .slider button {

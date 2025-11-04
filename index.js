@@ -1,3 +1,4 @@
+import "./components/navbar.js"; //importing the navbar component to be used on the page
 const API_URL = "https://v2.api.noroff.dev/online-shop";
 const container = document.querySelector("#container"); // Selects and HTML element with the ID container where the proucts will be displayed
 
@@ -7,7 +8,7 @@ async function fetchProducts() {
     const res = await fetch(API_URL); //fetches the data from the API
     const data = await res.json(); //pauses until the response is received and converts it to JSON format
     const products = data.data || []; // if data.data does not exist, use an empty array, preventing errors
-
+    
     products.forEach((product) => {
       //for each product, this creates and appends a new visual card with image, title, and price
       const card = document.createElement("div"); //creating dynamic HTML elements for each product
@@ -27,17 +28,15 @@ async function fetchProducts() {
       title.className = "title";
       price.className = "price";
       discountedPrice.className = "discounted-price";
-      // rating.className = "rating";
 
       image.src = product.image.url; //setting the content of each element based on the product data
       image.alt = product.image.alt;
       title.textContent = product.title;
       price.textContent = product.price;
       discountedPrice.textContent = product.discountedPrice;
-      rating.textContent = product.rating;
       reviews.textContent = product.reviews;
       anchor.href = `product/index.html?id=${product.id}`;
-
+     
       content.appendChild(title); //nesting elements properly and appending them to the container
       content.appendChild(price);
       content.appendChild(discountedPrice);

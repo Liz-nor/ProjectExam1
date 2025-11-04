@@ -17,6 +17,7 @@ async function fetchAndCreateProducts() {
 
     const productDiv = document.createElement("div");
     const image = document.createElement("img");
+    const content = document.createElement("div");
     const title = document.createElement("h2");
     const price = document.createElement("p");
     const description = document.createElement("p");
@@ -25,27 +26,33 @@ async function fetchAndCreateProducts() {
     const reviews = document.createElement("p");
     const backButton = document.createElement("a");
 
-    productDiv.className = "product-detals";
+    productDiv.className = "product-details";
     image.className = "product-image";
+    content.className = "content";
     title.className = "product-title";
     price.className = "product-price";
+    discountedPrice.className = "discounted-price";
     description.className = "product-description";
     backButton.className = "back-button";
 
-    image.src = product.image.url;
-    image.alt = product.image.alt;
+    image.src = product.image.url; //setting the content of each element based on the product data
+    image.alt = product.image.alt; 
     title.textContent = product.title;
     price.textContent = `$${product.price}`;
     description.textContent = product.description;
+    discountedPrice.textContent = product.discountedPrice;
+    rating.textContent = product.rating;
+    reviews.textContent = product.reviews;
     backButton.textContent = "Back to products";
     backButton.href = "../index.html";
 
     productDiv.appendChild(image);
     productDiv.appendChild(title);
     productDiv.appendChild(price);
+    content.appendChild(discountedPrice);
     productDiv.appendChild(description);
     productDiv.appendChild(backButton);
-
+    content.appendChild(rating);
     container.appendChild(productDiv);
   } catch (error) {
     console.error("Failed to fetch products", error);
