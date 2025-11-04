@@ -22,10 +22,21 @@
       href="/assets/favicon/favicon-16x16.png"
     />
     <link rel="manifest" href="/assets/favicon/site.webmanifest" />
-    <script type="module" src="index.js"></script>
+    <script type="module" src="index.js" defer></script>
+    <script type="module" src="carousel.js" defer></script>
     <title>Document</title>
   </head>
   <body>
+    <div class="slider">
+      <div class="slides">
+        <img src="assets/img/handbag_1.jpg" data-id="3b43b2e4-62b0-4c02-9166-dffa46a0388c" alt="" />
+        <img src="assets/img/headphones_2.jpg" data-id="159fdd2f-2b12-46de-9654-d9139525ba87" alt="" />
+        <img src="assets/img/3.png" data-id="109566af-c5c2-4f87-86cb-76f36fb8d378" alt="" />
+        <img src="assets/img/ChatGPT Image 3. nov. 2025, 12_24_21 (1).png" data-id="5391e16f-d88b-4747-a989-f17fb178459d" alt="">
+      </div>
+      <button class="prev">&#10094</button>
+      <button class="next">&#10095</button>
+    </div>
     <main>
       <div class="container" id="container">
         <img src="assets/img/1.png" class="fill-img" alt="" />

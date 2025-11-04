@@ -27,7 +27,7 @@ async function fetchProducts() {
       title.className = "title";
       price.className = "price";
       discountedPrice.className = "discounted-price";
-      rating.className = "rating";
+      // rating.className = "rating";
 
       image.src = product.image.url; //setting the content of each element based on the product data
       image.alt = product.image.alt;
@@ -38,7 +38,7 @@ async function fetchProducts() {
       reviews.textContent = product.reviews;
       anchor.href = `product/index.html?id=${product.id}`;
 
-      content.appendChild(title); //nesting elements prperly and appending them to the container
+      content.appendChild(title); //nesting elements properly and appending them to the container
       content.appendChild(price);
       content.appendChild(discountedPrice);
       card.appendChild(image);
