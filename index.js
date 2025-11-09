@@ -32,10 +32,31 @@ async function fetchProducts() {
       image.src = product.image.url; //setting the content of each element based on the product data
       image.alt = product.image.alt;
       title.textContent = product.title;
+      title.style.color = "black";
+      price.style.color = "black";
+      discountedPrice.style.color = "black";
       price.textContent = product.price;
       discountedPrice.textContent = product.discountedPrice;
+
+      const hasDiscount = 
+      typeof product.discountedPrice === "number" &&
+      typeof product.price === "number" &&
+      product.discountedPrice < product.price;
+
+      if (hasDiscount) {
+        price.textContent = "On sale!"
+        price.textContent = `$${product.price.toFixed(2)}`;
+        price.style.textDecoration = "line-through";
+        price.style.textDecorationColor = "red";
+       discountedPrice.textContent = `$${product.discountedPrice.toFixed(2)}`;
+      } else {
+        price.textContent = `$${product.price.toFixed(2)}`;
+        price.style.textDecoration = "none";
+        discountedPrice.textContent = "";
+      }
       reviews.textContent = product.reviews;
-      anchor.href = `product/index.html?id=${product.id}`;
+      anchor.href = `product/product.html?id=${product.id}`;
+      anchor.style.textDecoration = "none";
      
       content.appendChild(title); //nesting elements properly and appending them to the container
       content.appendChild(price);

@@ -1,62 +1,108 @@
-const API_URL = "https://v2.api.noroff.dev/online-shop";
-const container = document.querySelector("#container");
+import "../components/navbar.js"; // Importing the navbar component to be used on the page
+const API_URL = "https://v2.api.noroff.dev/online-shop"; // Base API URL
+const container = document.querySelector("#container"); // Container to hold the product details
 
-async function fetchAndCreateProducts() {
-  try {
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
+async function fetchAndCreateProducts() { // Main function to fetch and display product details
+  const params = new URLSearchParams(window.location.search); // Get query parameters from the URL
+  const id = params.get("id"); // Extract the product ID
 
-    if (!id) {
-      container.textContent = "No product ID provided in the URL.";
+  if (!id) {
+    container.textContent = "No product ID provided in the URL."; 
+    return;
+  }
+
+  try { // Attempt to fetch product details
+    const response = await fetch(`${API_URL}/${id}`);
+    const data = await response.json();
+    const product = data?.data;
+
+    if (!product) { // Handle case where product is not found
+      container.textContent = "Could not load product.";
       return;
     }
 
-    const response = await fetch(`${API_URL}/${id}`);
-    const data = await response.json();
-    const product = data.data;
-
+    // Elements
     const productDiv = document.createElement("div");
     const image = document.createElement("img");
-    const content = document.createElement("div");
     const title = document.createElement("h2");
-    const price = document.createElement("p");
+    const price = document.createElement("p");            
+    const discounted = document.createElement("p");      
     const description = document.createElement("p");
-    const discountedPrice = document.createElement("p");
     const rating = document.createElement("p");
     const reviews = document.createElement("p");
     const backButton = document.createElement("a");
 
+    // Classes
     productDiv.className = "product-details";
     image.className = "product-image";
-    content.className = "content";
     title.className = "product-title";
     price.className = "product-price";
-    discountedPrice.className = "discounted-price";
+    discounted.className = "discounted-price";
+    rating.className = "ratings";
+    reviews.className = "reviews";
     description.className = "product-description";
     backButton.className = "back-button";
 
-    image.src = product.image.url; //setting the content of each element based on the product data
-    image.alt = product.image.alt; 
-    title.textContent = product.title;
-    price.textContent = `$${product.price}`;
-    description.textContent = product.description;
-    discountedPrice.textContent = product.discountedPrice;
-    rating.textContent = product.rating;
-    reviews.textContent = product.reviews;
+    // Content
+    image.src = product.image?.url || "";
+    image.alt = product.image?.alt || product.title || "Product image";
+    title.textContent = product.title ?? "Untitled product";
+    description.textContent = product.description ?? "";
+    
+
+    // --- Price logic (cross out original when discounted) ---
+    const hasDiscount =
+      typeof product.discountedPrice === "number" &&
+      typeof product.price === "number" &&
+      product.discountedPrice < product.price;
+
+    if (hasDiscount) {
+      price.textContent = `$${product.price.toFixed(2)}`;
+      price.style.textDecoration = "line-through";  // cross-out original price
+      price.style.textDecorationColor = "red";
+      discounted.textContent = `$${product.discountedPrice.toFixed(2)}`;
+    } else {
+      price.textContent = `$${Number(product.price || 0).toFixed(2)}`;
+      price.style.textDecoration = "none";
+      discounted.textContent = ""; // nothing to show
+    }
+
+    // --- Rating ---
+    rating.textContent =
+      typeof product.rating === "number" ? `Rating: ${product.rating}` : "Rating: N/A";
+
+    // --- Reviews ---
+    if (Array.isArray(product.reviews) && product.reviews.length > 0) {
+      const reviewCount = product.reviews.length;
+      const reviewList = product.reviews
+      .map(r => `⭐ ${r.rating}/5  ${r.description}`)
+      .join("\n");
+      reviews.textContent = `Reviews (${reviewCount}):\n- ${reviewList}`;
+    
+    } else if (typeof product.reviews === "string" && product.reviews.trim() !== "") {
+      reviews.textContent = `Reviews: ${product.reviews}`;
+
+    } else {
+      reviews.textContent = "No reviews available... yet";
+    } 
+    
+    // Back link
     backButton.textContent = "Back to products";
     backButton.href = "../index.html";
 
+    // Compose
     productDiv.appendChild(image);
     productDiv.appendChild(title);
     productDiv.appendChild(price);
-    content.appendChild(discountedPrice);
+    if (hasDiscount) productDiv.appendChild(discounted);
     productDiv.appendChild(description);
+    productDiv.appendChild(rating);
+    productDiv.appendChild(reviews);
     productDiv.appendChild(backButton);
-    content.appendChild(rating);
     container.appendChild(productDiv);
-  } catch (error) {
-    console.error("Failed to fetch products", error);
-    container.textContent = "Failed to load products";
+  } catch (err) {
+    container.textContent = "Something went wrong loading the product.";
+    // Optional: console.error(err);
   }
 }
 
