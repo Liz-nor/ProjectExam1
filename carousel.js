@@ -53,8 +53,9 @@ imgHeadphones.addEventListener('click', (event) => {
 })
 imgPerfume.addEventListener('click', (event) => { 
   const id = event.target.dataset.id; 
-  window.location.href = `/user/${id}`; 
-})
+  if (!id) return;  
+  window.location.href = `/product/product.html?=${id}`; // Navigate to product page with the id as a query parameter
+});
 
 fetch("https://v2.api.noroff.dev/online-shop")
 .then(res => {
