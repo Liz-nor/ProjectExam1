@@ -14,8 +14,10 @@
  /*Neutral colors */
 
  /* Headings */
- --font-size-h1: ;
+ --font-size-h1: 3rem;
  --font-size-h2: ;
  --font-size-h3: ;
- }
  
+
+ /* Buttons */
+ --rounded-corners: 5px;
