@@ -12,6 +12,7 @@
 "> -->
 
     <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="/css/pages/navbar.css">
     <link rel="import" href="signup.html">
     <link rel="import" href="login.html">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
@@ -20,10 +21,18 @@
     <link rel="manifest" href="assets/favicon/site.webmanifest" />
     <script type="module" src="index.js" defer></script>
     <script type="module" src="carousel.js" defer></script>
+    <script type="module" src="/components/navbar.js" defer></script>
     <title>Browse our exclusive products and fill your everyday life with a little more glamour</title>
   </head>
   <body>
-    <header id="navbar"></header>
+    <header id="navbar"> 
+      <div class="off-screen-menu"></div> 
+      <nav class="ham-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </nav>
+    </header>
     <div class="slider">
       <div class="slides">
         <img src="assets/img/handbag_1.jpg" alt="" id="imgHandbag" data-id="3b43b2e4-62b0-4c02-9166-dffa46a0388c" />

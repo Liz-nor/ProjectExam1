@@ -1,0 +1,16 @@
+/* --- Product Card --- */
+.product-details {
+  border: 2px solid var(--primary-color-dark-orange);
+  width: 450px;
+  margin: 20px auto;
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.2);
+}
+.product-image {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+}
+
+.product-details {
+  padding: 10px;
+} 

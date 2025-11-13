@@ -27,10 +27,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	contact.href = '/contact.html';
 	contact.textContent = 'Contact';
 	const login = document.createElement('a');
-	login.href = '/login.html';
+	login.href = 'pages/login.html';
 	login.textContent = 'Log In';
 	const signup = document.createElement('a');
-	signup.href = '/signup.html';
+	signup.href = 'pages/signup.html';
 	signup.textContent = 'Sign Up';
 	li.appendChild(home);
 	li.appendChild(about);
@@ -41,6 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	nav.appendChild(ul);
 	header.appendChild(nav);
 
-	document.body.prepend(header);
+	document.body.prepend(header); 
 });
 
