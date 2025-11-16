@@ -4,18 +4,83 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/pages/products.css" />
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="/css/pages/navbar.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
-    <link rel="shortcut icon" href="../assets/favicon/favicon.ico">
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="/css/pages/navbar.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../assets/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../assets/favicon/favicon-16x16.png"
+    />
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico" />
     <link rel="manifest" href="/assets/favicon/site.webmanifest" />
     <script type="module" src="./product.js" defer></script>
     <script type="module" src="../components/navbar.js" defer></script>
     <title>Get a more detailed look on our products</title>
   </head>
   <body>
-    <div id="container" class="product-container"></div>
+    <header id="navbar">
+      <nav class="nav-container">
+        <div class="logo-container">
+          <a href="/index.html">
+            <img src="/assets/1.png" class="logo" alt="Lènoir Lane logo" />
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact Us</a></li>
+          <li><a href="pages/login.html">Login</a></li>
+          <li><a href="pages/signup.html">Sign Up</a></li>
+        </ul>
+        <div class="cart-icon">
+          <img
+            src="/assets/cart-shopping-svgrepo-com.svg"
+            class="shopping-cart"
+            alt="shopping cart"
+          />
+          <span>0</span>
+          <input type="checkbox" id="menu-checkbox" />
+          <label for="menu-checkbox" class="hamburger-icon">
+            <i class="fa-solid fa-bars"></i>
+          </label>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div id="container" class="product-container"></div>
+      <div id="cart" class="hidden">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <p id="cart-total"></p>
+    <button id="clear-cart">Clear Cart</button>
+    <button id="close-cart">Close</button>
+    <button id="go-to-checkout">Check-out</button>
+      <select id="sizeSelect">
+        <option value="">Please pick size</option>
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+        <option>XL</option>
+      </select>
+      <!-- <select id="colorSelect">
+      <option value="">Please pick color</option>
+      <option>Red</option>
+      <option>Blue</option>
+      <option>Black</option>
+    </select> -->
+      <div class="checkout">Add to Cart</div>
+    </main>
   </body>
 </html>

@@ -3,17 +3,16 @@
 @import url("../variables.css");
 
 * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: "GFS Didot", Verdana, Geneva, Tahoma, sans-serif;
-    background-image: url(/assets/img/sapphires-4071854_640.jpg);
-    background-size: cover;
-    background-position: 30% 60%;
+  font-family: "GFS Didot", Verdana, Geneva, Tahoma, sans-serif;
+  background-image: url(/assets/img/sapphires-4071854_640.jpg);
+  background-size: cover;
+  background-position: 30% 60%;
 }
 
 .signup-wrapper {
@@ -30,99 +29,99 @@ body {
 }
 
 h1 {
-    font-size: var(--font-size-h1);
-    text-transform: uppercase;
+  font-size: var(--font-size-h1);
+  text-transform: uppercase;
 }
 
 form {
-    width: min(400px, 100%);
-    margin-top: 20px;
-    margin-bottom: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+  width: min(400px, 100%);
+  margin-top: 20px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
 form > div {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 form label {
-    flex-shrink: 0;
-    height: 50px;
-    width: 50px;
-    background-color: var(--primary-color-dark-orange);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px 0 0 10px;
+  flex-shrink: 0;
+  height: 50px;
+  width: 50px;
+  background-color: var(--primary-color-orange);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px 0 0 10px;
 }
 
 form input {
-    box-sizing: border-box;
-    flex-grow: 1;
-    min-width:  0;
-    height: 50px;
-    padding: 1em;
-    font: inherit;
-    border: none;
-    border-radius: 0 10px 10px 0;
+  box-sizing: border-box;
+  flex-grow: 1;
+  min-width: 0;
+  height: 50px;
+  padding: 1em;
+  font: inherit;
+  border: none;
+  border-radius: 0 10px 10px 0;
 }
 
 form input:hover {
-    border: 2px solid var(--secondary-color-dark);
+  border: 2px solid var(--secondary-color-dark);
 }
 
-form input:focus{
-    outline: none;
-    border-color: var(--secondary-color-dark)
+form input:focus {
+  outline: none;
+  border-color: var(--secondary-color-dark);
 }
 
 div:has(input:focus) > label {
-    background-color: var(--secondary-color-dark);
+  background-color: var(--secondary-color-dark);
 }
 
 button {
-    width: 200px;
-    height: 35px;
-    margin-top: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 150ms ease;
+  width: 200px;
+  height: 35px;
+  margin-top: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 150ms ease;
 }
 
 button:hover {
-    background-color: var(--secondary-color-dark);
-    color: #fff;
+  background-color: var(--secondary-color-dark);
+  color: #fff;
 }
 
 button:focus {
-    outline: none;
-    background-color: var(--secondary-color-dark);
+  outline: none;
+  background-color: var(--secondary-color-dark);
 }
 
 a {
-    text-decoration: none;
-    color: #000;
+  text-decoration: none;
+  color: #000;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-@media(max-width: 1100px) {
-    .signup-wrapper {
-        width: min(600px, 100%);
-        border-radius: 0;
-    }
+@media (max-width: 1100px) {
+  .signup-wrapper {
+    width: min(600px, 100%);
+    border-radius: 0;
+  }
 }
 
-form div.incorrect label{
-    background-color: red;
+form div.incorrect label {
+  background-color: red;
 }
 
 form div.incorrect input {
-    border-color: red;
+  border-color: red;
 }

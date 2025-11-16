@@ -1,3 +1,9 @@
+import {
+  addToCart,
+  renderCart,
+  updateCartCounter,
+  initCartUI,
+} from "./components/cart.js";
 import "./components/navbar.js"; //importing the navbar component to be used on the page
 const API_URL = "https://v2.api.noroff.dev/online-shop";
 const container = document.querySelector("#container"); // Selects and HTML element with the ID container where the proucts will be displayed
@@ -8,9 +14,9 @@ async function fetchProducts() {
     const res = await fetch(API_URL); //fetches the data from the API
     const data = await res.json(); //pauses until the response is received and converts it to JSON format
     const products = data.data || []; // if data.data does not exist, use an empty array, preventing errors
-    
+
     products.forEach((product) => {
-      //for each product, this creates and appends a new visual card with image, title, and price
+      //for each product, this creates and appends a new visual card with image, title, price etc
       const card = document.createElement("div"); //creating dynamic HTML elements for each product
       const image = document.createElement("img");
       const content = document.createElement("div");
@@ -22,7 +28,7 @@ async function fetchProducts() {
       const anchor = document.createElement("a");
 
       card.className = "card"; //assigning class names for use in CSS
-      card.classList.add("fill-img");
+      // card.classList.add("fill-img");
       image.className = "image";
       content.className = "content";
       title.className = "title";
@@ -38,17 +44,17 @@ async function fetchProducts() {
       price.textContent = product.price;
       discountedPrice.textContent = product.discountedPrice;
 
-      const hasDiscount = 
-      typeof product.discountedPrice === "number" &&
-      typeof product.price === "number" &&
-      product.discountedPrice < product.price;
+      const hasDiscount =
+        typeof product.discountedPrice === "number" &&
+        typeof product.price === "number" &&
+        product.discountedPrice < product.price;
 
       if (hasDiscount) {
-        price.textContent = "On sale!"
+        price.textContent = "On sale!";
         price.textContent = `$${product.price.toFixed(2)}`;
         price.style.textDecoration = "line-through";
         price.style.textDecorationColor = "red";
-       discountedPrice.textContent = `$${product.discountedPrice.toFixed(2)}`;
+        discountedPrice.textContent = `$${product.discountedPrice.toFixed(2)}`;
       } else {
         price.textContent = `$${product.price.toFixed(2)}`;
         price.style.textDecoration = "none";
@@ -57,7 +63,17 @@ async function fetchProducts() {
       reviews.textContent = product.reviews;
       anchor.href = `product/product.html?id=${product.id}`;
       anchor.style.textDecoration = "none";
-     
+
+      const button = document.createElement("button");
+      button.className = "add-to-cart";
+      button.textContent = "Add to Cart";
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        addToCart(product);
+        updateCartCounter();
+        renderCart();
+      });
+
       content.appendChild(title); //nesting elements properly and appending them to the container
       content.appendChild(price);
       content.appendChild(discountedPrice);
@@ -65,7 +81,6 @@ async function fetchProducts() {
       card.appendChild(content);
       card.appendChild(rating);
       anchor.appendChild(card);
-
       container.appendChild(anchor);
     });
   } catch (error) {
@@ -74,3 +89,5 @@ async function fetchProducts() {
 }
 
 fetchProducts(); //calling the function to execute the code and display the products
+updateCartCounter();
+initCartUI();

@@ -3,11 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/pages/signup.css">
+    <link rel="stylesheet" href="/css/pages/navbar.css">
+    <link rel="stylesheet" href="/css/media.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script type="module" src="validation.js" defer></script>
+    <script type="module" src="/components/navbar.js"></script>
+
 </head>
 <body>
+  <header id="navbar">
+      <nav class="nav-container">
+        <div class="logo-container">
+          <a href="/index.html">
+            <img src="assets/1.png" class="logo" alt="Lènoir Lane logo" />
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact Us</a></li>
+          <li><a href="pages/login.html">Login</a></li>
+          <li><a href="pages/signup.html">Sign Up</a></li>
+        </ul>
+      </nav>
+  </header>
   <div class="signup-wrapper">
     <h1>Signup</h1>
     <p id="error-messages"></p>

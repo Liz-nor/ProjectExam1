@@ -1,6 +1,7 @@
 //Image Carousel
 
 const slides = document.querySelectorAll(".slides img"); // Select all images within the slides container
+const inspectBtn = document.getElementById("inspectGlobalBtn");
 let slideIndex = 0; // Initialize the starting slide index
 let intervalId = null; // Variable to hold the interval ID for automatic sliding
 
@@ -12,17 +13,28 @@ function initializeSlider() {
     intervalId = setInterval(nextSlide, 5000); // Change slide every 5 seconds
   }
 }
+//
+function getActiveProductId() {
+  const img = slides[slideIndex];
+  return img.dataset.id;
+}
 
-function showSlide(index) { 
-  if (index >= slides.length) { 
+inspectBtn.addEventListener("click", () => {
+  const productId = getActiveProductId();
+  const productUrl = `/product/product.html?id=${productId}`;
+  window.location.href = productUrl;
+});
+
+function showSlide(index) {
+  if (index >= slides.length) {
     slideIndex = 0;
   } else if (index < 0) {
     slideIndex = slides.length - 1;
   }
   slides.forEach((slide) => {
-    slide.classList.remove("displaySlide"); 
+    slide.classList.remove("displaySlide");
   });
-  slides[slideIndex].classList.add("displaySlide"); 
+  slides[slideIndex].classList.add("displaySlide");
 }
 function prevSlide() {
   clearInterval(intervalId); // Clear the existing interval
@@ -34,46 +46,27 @@ function nextSlide() {
   showSlide(slideIndex);
 }
 
-const imgHandbag = document.getElementById('imgHandbag')
-const imgHeadphones = document.getElementById('imgHeadphones')
-const imgBoots = document.getElementById('imgBoots')
-const imgPerfume = document.getElementById('imgPerfume')
-
-imgBoots.addEventListener('click', (event) => { // Add click event listener to the image
-  const id = event.target.dataset.id; // Get the id of the clicked image
-  console.log('clicked image ID;', id); // Log the id to the console
-})
-imgHandbag.addEventListener('click', (event) => { 
-  const id = event.target.dataset.id; 
-  console.log('clicked image ID;', id); 
-})
-imgHeadphones.addEventListener('click', (event) => { 
-  const id = event.target.dataset.id; 
-  console.log('clicked image ID;', id); 
-})
-imgPerfume.addEventListener('click', (event) => { 
-  const id = event.target.dataset.id; 
-  if (!id) return;  
-  window.location.href = `/product/product.html?=${id}`; // Navigate to product page with the id as a query parameter
-});
+const carousel = document.getElementById("carousel");
 
 fetch("https://v2.api.noroff.dev/online-shop")
-.then(res => {
-  return res.json();
-})
-.then(data => {
-  console.log(data);
-  data.data.forEach(product => {
-    const carouselItemHtml = `<li>${product.id}</li>`;
-
-    
+  .then((res) => res.json())
+  .then((data) => {
+    data.data.forEach((product) => {
+      console.log(product.tags);
+      console.log(...product.tags);
+      console.log(product.is, product.tags);
+    });
   });
-})
-.catch(error => 
-  console.log(error));
 
-document.querySelector(".next").addEventListener("click", nextSlide); 
+carousel.addEventListener("mouseenter", () => {
+  clearInterval(intervalId);
+});
+
+carousel.addEventListener("mouseleave", () => {
+  intervalId = setInterval(nextSlide, 3000);
+});
+
+document.querySelector(".next").addEventListener("click", nextSlide);
 document.querySelector(".prev").addEventListener("click", prevSlide);
 
 showSlide(slideIndex);
-

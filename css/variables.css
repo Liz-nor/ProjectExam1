@@ -1,23 +1,24 @@
- :root {/* Primary colors */
- --primary-color-beige: #E9B88F;
- --primary-color-dark-beige: #B97D60;
- --primary-color-orange: #F0A160;
- --primary-color-dark-orange: #F54D3D;
+:root {
+  /* Primary colors */
+  --primary-color-beige: #e9b88f;
+  --primary-color-dark-beige: #b97d60;
+  --primary-color-orange: #f0a160;
+  --primary-color-dark-orange: #f54d3d;
 
- /* Secondary colors */
---secondary-color-light-grey: #D5CDC1;
---secondary-color-dark-grey: #6D6C6B;
---secondary-color-brown: #806C64;
---secondary-color-dark: #524A46;
- /*Accent colors */
+  /* Secondary colors */
+  --secondary-color-light-grey: #d5cdc1;
+  --secondary-color-dark-grey: #6d6c6b;
+  --secondary-color-brown: #806c64;
+  --secondary-color-dark: #524a46;
 
- /*Neutral colors */
+  /* Headings */
+  --font-size-h1: 3rem;
+  --font-size-h2: ;
+  --font-size-h3: ;
 
- /* Headings */
- --font-size-h1: 3rem;
- --font-size-h2: ;
- --font-size-h3: ;
- 
-
- /* Buttons */
- --rounded-corners: 5px;
+  /* Buttons */
+  --rounded-corners: 5px;
+  --button-color: #e9b88f;
+  --button-shadow: 0 0.4rem #dfd9d9;
+  --button-hover-shadow: 0 0.2rem #e9b88f;
+}
