@@ -1,16 +1,16 @@
-//Image Carousel
+// --- Image Carousel ---
 
-const slides = document.querySelectorAll(".slides img"); // Select all images within the slides container
+const slides = document.querySelectorAll(".slides img"); // --- Select all images within the slides container
 const inspectBtn = document.getElementById("inspectGlobalBtn");
-let slideIndex = 0; // Initialize the starting slide index
-let intervalId = null; // Variable to hold the interval ID for automatic sliding
+let slideIndex = 0; // --- Initialize the starting slide index
+let intervalId = null; // --- Variable to hold the interval ID for automatic sliding
 
 initializeSlider();
-document.addEventListener("DOMContentLoaded", initializeSlider); // Ensure the slider initializes after the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", initializeSlider); // --- Ensure the slider initializes after the DOM is fully loaded
 function initializeSlider() {
   if (slides.length > 0) {
-    slides[slideIndex].classList.add("displaySlide"); // Show the first slide
-    intervalId = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+    slides[slideIndex].classList.add("displaySlide"); // --- Show the first slide
+    intervalId = setInterval(nextSlide, 3000); // --- Change slide every 5 seconds
   }
 }
 //
@@ -63,7 +63,7 @@ carousel.addEventListener("mouseenter", () => {
 });
 
 carousel.addEventListener("mouseleave", () => {
-  intervalId = setInterval(nextSlide, 3000);
+  intervalId = setInterval(nextSlide, 5000);
 });
 
 document.querySelector(".next").addEventListener("click", nextSlide);

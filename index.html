@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="/css/pages/navbar.css" />
     <link rel="stylesheet" href="/css/media.css" />
+    <link rel="stylesheet" href="/css/pages/cart.css" />
     <link rel="import" href="signup.html" />
     <link rel="import" href="login.html" />
     <link
@@ -33,6 +34,7 @@
     <script type="module" src="index.js" defer></script>
     <script type="module" src="carousel.js" defer></script>
     <script type="module" src="/components/navbar.js" defer></script>
+    <script type="module" src="/components/cart.js" defer></script>
     <title>
       Browse our exclusive products and fill your everyday life with a little
       more glamour
@@ -82,7 +84,6 @@
             id="imgHandbag"
             data-id="3b43b2e4-62b0-4c02-9166-dffa46a0388c"
           />
-          <!-- <button class="inspectBtn">Click me to see</button> -->
         </div>
         <div class="imgHeadphones">
           <img
@@ -91,7 +92,6 @@
             id="imgHeadphones"
             data-id="159fdd2f-2b12-46de-9654-d9139525ba87"
           />
-          <!-- <button class="inspectBtn">Click me to see</button> -->
         </div>
         <div class="imgPerfume">
           <img
@@ -100,7 +100,6 @@
             id="imgPerfume"
             data-id="109566af-c5c2-4f87-86cb-76f36fb8d378"
           />
-          <!-- <button class="inspectBtn">Click me to see</button> -->
         </div>
         <div class="imgShampo">
           <img
@@ -111,14 +110,12 @@
           />
         </div>
         <div class="imgSpeaker">
-          <!-- <button class="inspectBtn">Click me to see</button> -->
           <img
             src="assets/img/ChatGPT Image 14. nov. 2025, 18_25_16.png"
             alt=""
             id="imgSpeaker"
             data-id="5aa2e388-8dfb-4d70-b031-3732d8c6771a"
           />
-          <!-- <button class="inspectBtn">Click me to see</button> -->
         </div>
       </div>
       <button class="prev">
@@ -133,6 +130,14 @@
     </div>
     <main>
       <div class="container" id="container"></div>
+      <div id="cart" class="hidden">
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <p id="cart-total"></p>
+        <button id="clear-cart">Clear Cart</button>
+        <button id="close-cart">Close</button>
+        <button id="go-to-checkout">Check-out</button>
+      </div>
     </main>
   </body>
 </html>

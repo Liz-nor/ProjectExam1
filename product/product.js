@@ -4,9 +4,9 @@ import {
   addToCart,
   renderCart,
 } from "../components/cart.js";
-import "../components/navbar.js"; // Importing the navbar component to be used on the page
-const API_URL = "https://v2.api.noroff.dev/online-shop"; // Base API URL
-const container = document.querySelector("#container"); // Container to hold the product details
+import "../components/navbar.js"; // --- Importing the navbar component to be used on the page
+const API_URL = "https://v2.api.noroff.dev/online-shop"; // --- Base API URL
+const container = document.querySelector("#container"); // --- Container to hold the product details
 const sizeSelect = document.getElementById("sizeSelect");
 
 function areShoes(product) {
@@ -18,9 +18,9 @@ function areShoes(product) {
 }
 
 async function fetchAndCreateProducts() {
-  // Main function to fetch and display product details
-  const params = new URLSearchParams(window.location.search); // Get query parameters from the URL
-  const id = params.get("id"); // Extract the product ID
+  // --- Main function to fetch and display product details ---
+  const params = new URLSearchParams(window.location.search); // --- Get query parameters from the URL
+  const id = params.get("id"); // --- Extract the product ID
   console.log(id);
   if (!id) {
     container.textContent = "No product ID provided in the URL.";
@@ -28,13 +28,13 @@ async function fetchAndCreateProducts() {
   }
 
   try {
-    // Attempt to fetch product details
+    // --- Attempt to fetch product details ---
     const response = await fetch(`${API_URL}/${id}`);
     const data = await response.json();
     const product = data?.data;
 
     if (!product) {
-      // Handle case where product is not found
+      // --- Handle case where product is not found ---
       container.textContent = "Could not load product.";
       return;
     }
@@ -53,7 +53,7 @@ async function fetchAndCreateProducts() {
         }
       });
 
-    // Elements
+    // --- Elements ---
     const productDiv = document.createElement("div");
     const image = document.createElement("img");
     const title = document.createElement("h2");
@@ -64,7 +64,7 @@ async function fetchAndCreateProducts() {
     const reviews = document.createElement("p");
     const backButton = document.createElement("a");
 
-    // Classes
+    // --- Classes ---
     productDiv.className = "product-details";
     image.className = "product-image";
     title.className = "product-title";
@@ -75,7 +75,7 @@ async function fetchAndCreateProducts() {
     description.className = "product-description";
     backButton.className = "back-button";
 
-    // Content
+    // --- Content ---
     image.src = product.image?.url || "";
     image.alt = product.image?.alt || product.title || "Product image";
     title.textContent = product.title ?? "Untitled product";
@@ -119,7 +119,7 @@ async function fetchAndCreateProducts() {
     } else {
       reviews.textContent = "No reviews available... yet";
     }
-
+    // --- Add to Cart ---
     const addToCartBtn = document.createElement("button");
     addToCartBtn.className = "addToCartBtn";
     addToCartBtn.textContent = "Add To Cart";
@@ -130,11 +130,11 @@ async function fetchAndCreateProducts() {
       renderCart();
     });
 
-    // Back link
+    // --- Back link ---
     backButton.textContent = "Back to products";
     backButton.href = "../index.html";
 
-    // Compose
+    // --- Compose ---
     productDiv.appendChild(image);
     productDiv.appendChild(title);
     productDiv.appendChild(price);

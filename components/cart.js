@@ -1,7 +1,10 @@
-const CART_KEY = "cart";
+// --- Shopping cart ---
 
+const CART_KEY = "cart"; // --- Key used in localStorage
+// --- Reads saved cart from browser
 export function loadCart() {
   try {
+    // --- Try/catch to prevent page from crashing
     return JSON.parse(localStorage.getItem(CART_KEY)) || [];
   } catch {
     return [];
@@ -9,14 +12,17 @@ export function loadCart() {
 }
 
 export function saveCart(cart) {
+  // --- Converts cart array to json, stores in localStorage
   localStorage.setItem(CART_KEY, JSON.stringify(cart));
 }
 
 export function getCartCount(cart) {
+  // --- Count the number of items in cart
   return cart.reduce((sum, item) => sum + item.qty, 0);
 }
 
 export function addToCart(product) {
+  // --- Main function to add an item
   let cart = loadCart();
   const idx = cart.findIndex((i) => i.id === product.id);
 
@@ -37,6 +43,7 @@ export function addToCart(product) {
 }
 
 export function removeFromCart(id) {
+  // --- Removing an item
   let cart = loadCart();
   const idx = cart.findIndex((i) => i.id === id);
   if (idx >= 0) {
@@ -48,6 +55,7 @@ export function removeFromCart(id) {
 }
 
 export function changeQty(id, delta) {
+  // --- Change quantity
   let cart = loadCart();
   const idx = cart.findIndex((i) => i.id === id);
   if (idx >= 0) {
@@ -62,6 +70,7 @@ export function changeQty(id, delta) {
 }
 
 export function updateCartCounter() {
+  // --- Update the counter
   const badge = document.querySelector(".cart-icon span");
   if (!badge) return;
   const cart = loadCart();
@@ -69,6 +78,7 @@ export function updateCartCounter() {
 }
 
 export function renderCart() {
+  // --- Build the cart UI
   const cartItemsEl = document.getElementById("cart-items");
   const cartTotalEl = document.getElementById("cart-total");
   if (!cartItemsEl || !cartTotalEl) return;
@@ -83,6 +93,7 @@ export function renderCart() {
 
   let total = 0;
   cart.forEach((item) => {
+    // --- Loop through the cart
     total += item.price * item.qty;
 
     const row = document.createElement("div");
@@ -129,7 +140,7 @@ export function renderCart() {
     cartItemsEl.appendChild(row);
   });
 
-  cartTotalEl.textContent = `Total: $${total.toFixed(2)}`;
+  cartTotalEl.textContent = `Total: $${total.toFixed(2)}`; // --- Update total price
 }
 
 export function initCartUI() {
