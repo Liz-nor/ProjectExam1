@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="/css/pages/navbar.css" />
     <link rel="stylesheet" href="/css/media.css" />
     <link rel="stylesheet" href="/css/pages/cart.css" />
-    <link rel="import" href="signup.html" />
-    <link rel="import" href="login.html" />
+    <link rel="import" href="/account/register.html" />
+    <link rel="import" href="/account/login.html" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -31,10 +31,15 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://fontawesome.com/icons/user?f=classic&s=solid"
+    />
     <script type="module" src="index.js" defer></script>
     <script type="module" src="carousel.js" defer></script>
     <script type="module" src="/components/navbar.js" defer></script>
     <script type="module" src="/components/cart.js" defer></script>
+    <script type="module" src="/components/footer.js" defer></script>
     <title>
       Browse our exclusive products and fill your everyday life with a little
       more glamour
@@ -52,8 +57,13 @@
           <li><a href="/index.html">Home</a></li>
           <li><a href="/about.html">About</a></li>
           <li><a href="/contact.html">Contact Us</a></li>
-          <li><a href="pages/login.html">Login</a></li>
-          <li><a href="pages/signup.html">Sign Up</a></li>
+          <li><a href="/account/login.html">Login</a></li>
+          <li><a href="/account/register.html">Sign Up</a></li>
+          <li>
+            <a href="pages/my-account.html">
+              <i class="fa-solid fa-user"></i>
+            </a>
+          </li>
         </ul>
         <div class="cart-icon">
           <img
@@ -75,58 +85,44 @@
         Your browser does not support the video tag
       </video> -->
     </div>
-    <div class="slider" id="carousel">
-      <div class="slides">
-        <div class="imgHandbag">
-          <img
-            src="assets/img/handbag_1.jpg"
-            alt=""
-            id="imgHandbag"
-            data-id="3b43b2e4-62b0-4c02-9166-dffa46a0388c"
-          />
+    <div class="carousel-container">
+      <div class="slider" id="carousel">
+        <div class="slides">
+          <div class="imgHandbag">
+            <img
+              src="assets/img/handbag_1.jpg"
+              alt=""
+              id="imgHandbag"
+              data-id="3b43b2e4-62b0-4c02-9166-dffa46a0388c"
+            />
+          </div>
+          <div class="imgHeadphones">
+            <img
+              src="assets/img/headphones_2.jpg"
+              alt=""
+              id="imgHeadphones"
+              data-id="159fdd2f-2b12-46de-9654-d9139525ba87"
+            />
+          </div>
+          <div class="imgPerfume">
+            <img
+              src="assets/img/3.png"
+              alt=""
+              id="imgPerfume"
+              data-id="109566af-c5c2-4f87-86cb-76f36fb8d378"
+            />
+          </div>
         </div>
-        <div class="imgHeadphones">
-          <img
-            src="assets/img/headphones_2.jpg"
-            alt=""
-            id="imgHeadphones"
-            data-id="159fdd2f-2b12-46de-9654-d9139525ba87"
-          />
-        </div>
-        <div class="imgPerfume">
-          <img
-            src="assets/img/3.png"
-            alt=""
-            id="imgPerfume"
-            data-id="109566af-c5c2-4f87-86cb-76f36fb8d378"
-          />
-        </div>
-        <div class="imgShampo">
-          <img
-            src="assets/img/11-shampoo.jpg"
-            alt=""
-            id="imgShampoo"
-            data-id="c0d245f1-58fa-4b15-aa0c-a704772a122b"
-          />
-        </div>
-        <div class="imgSpeaker">
-          <img
-            src="assets/img/ChatGPT Image 14. nov. 2025, 18_25_16.png"
-            alt=""
-            id="imgSpeaker"
-            data-id="5aa2e388-8dfb-4d70-b031-3732d8c6771a"
-          />
-        </div>
+        <button class="prev">
+          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        </button>
+        <button class="next">
+          <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </button>
+        <button id="inspectGlobalBtn" class="inspectBtn">
+          Click me to see more
+        </button>
       </div>
-      <button class="prev">
-        <i class="fa fa-arrow-left" aria-hidden="true"></i>
-      </button>
-      <button class="next">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-      </button>
-      <button id="inspectGlobalBtn" class="inspectBtn">
-        Click me to see more
-      </button>
     </div>
     <main>
       <div class="container" id="container"></div>
@@ -138,6 +134,27 @@
         <button id="close-cart">Close</button>
         <button id="go-to-checkout">Check-out</button>
       </div>
+      <section class="info">
+        <h2>Check these out</h2>
+        <ul>
+          <li>🚛Free Shipping</li>
+          <li>🔒Safe Payment</li>
+          <li>⭐Check out the reviews</li>
+        </ul>
+      </section>
     </main>
   </body>
+  <footer>
+    <div>
+      <ul>
+        <li><a href="">Find Us</a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href="">Reviews</a></li>
+      </ul>
+      <img src="/assets/2.png" alt="" />
+      <img src="" alt="" />
+    </div>
+  </footer>
 </html>

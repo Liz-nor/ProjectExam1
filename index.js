@@ -27,12 +27,14 @@ async function fetchProducts() {
       const reviews = document.createElement("p");
       const anchor = document.createElement("a");
 
+      
       card.className = "card"; //assigning class names for use in CSS
       image.className = "image";
       content.className = "content";
       title.className = "title";
       price.className = "price";
       discountedPrice.className = "discounted-price";
+      
 
       image.src = product.image.url; // --- Setting the content of each element based on the product data
       image.alt = product.image.alt;
@@ -42,6 +44,7 @@ async function fetchProducts() {
       discountedPrice.style.color = "black";
       price.textContent = product.price;
       discountedPrice.textContent = product.discountedPrice;
+      
 
       const hasDiscount =
         typeof product.discountedPrice === "number" &&
@@ -63,15 +66,15 @@ async function fetchProducts() {
       anchor.href = `product/product.html?id=${product.id}`;
       anchor.style.textDecoration = "none";
 
-      const button = document.createElement("button");
-      button.className = "add-to-cart";
-      button.textContent = "Add to Cart";
-      button.addEventListener("click", (event) => {
-        event.preventDefault();
-        addToCart(product);
-        updateCartCounter();
-        renderCart();
-      });
+      // const button = document.createElement("button");
+      // button.className = "add-to-cart";
+      // button.textContent = "Add to Cart";
+      // button.addEventListener("click", (event) => {
+      //   event.preventDefault();
+      //   addToCart(product);
+      //   updateCartCounter();
+      //   renderCart();
+      // });
 
       content.appendChild(title); // --- Nesting elements properly and appending them to the container
       content.appendChild(price);

@@ -5,6 +5,7 @@ import {
   renderCart,
 } from "../components/cart.js";
 import "../components/navbar.js"; // --- Importing the navbar component to be used on the page
+
 const API_URL = "https://v2.api.noroff.dev/online-shop"; // --- Base API URL
 const container = document.querySelector("#container"); // --- Container to hold the product details
 const sizeSelect = document.getElementById("sizeSelect");
@@ -42,7 +43,7 @@ async function fetchAndCreateProducts() {
     fetch(`https://v2.api.noroff.dev/online-shop/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        const product = data.data || data; //depending on the API-structure
+        const product = data.data || data; // --- depending on the API-structure
 
         console.log("Tags", product.tags);
 
@@ -62,6 +63,7 @@ async function fetchAndCreateProducts() {
     const description = document.createElement("p");
     const rating = document.createElement("p");
     const reviews = document.createElement("p");
+
     const backButton = document.createElement("a");
 
     // --- Classes ---
@@ -89,13 +91,13 @@ async function fetchAndCreateProducts() {
 
     if (hasDiscount) {
       price.textContent = `$${product.price.toFixed(2)}`;
-      price.style.textDecoration = "line-through"; // cross-out original price
+      price.style.textDecoration = "line-through"; // --- cross-out original price
       price.style.textDecorationColor = "red";
       discounted.textContent = `$${product.discountedPrice.toFixed(2)}`;
     } else {
       price.textContent = `$${Number(product.price || 0).toFixed(2)}`;
       price.style.textDecoration = "none";
-      discounted.textContent = ""; // nothing to show
+      discounted.textContent = ""; // --- nothing to show
     }
 
     // --- Rating ---
@@ -120,19 +122,15 @@ async function fetchAndCreateProducts() {
       reviews.textContent = "No reviews available... yet";
     }
     // --- Add to Cart ---
-    const addToCartBtn = document.createElement("button");
-    addToCartBtn.className = "addToCartBtn";
-    addToCartBtn.textContent = "Add To Cart";
-    addToCartBtn.addEventListener("click", (event) => {
-      event.preventDefault();
-      addToCart(product);
-      updateCartCounter();
-      renderCart();
-    });
-
-    // --- Back link ---
-    backButton.textContent = "Back to products";
-    backButton.href = "../index.html";
+    // const addToCartBtn = document.createElement("button");
+    // addToCartBtn.className = "addToCartBtn";
+    // addToCartBtn.textContent = "Add To Cart";
+    // addToCartBtn.addEventListener("click", (event) => {
+    //   event.preventDefault();
+    //   addToCart(product);
+    //   updateCartCounter();
+    //   renderCart();
+    // });
 
     // --- Compose ---
     productDiv.appendChild(image);
