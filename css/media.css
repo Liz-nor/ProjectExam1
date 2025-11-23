@@ -1,4 +1,4 @@
-@media (max-width: 768px) {
+@media (max-width: 830px) {
   #navbar {
     width: 100%;
     justify-content: space-between;
@@ -27,6 +27,16 @@
     opacity: 0;
     transition: max-height 0.25s ease, opacity 0.25s ease;
   }
+  .product-layout {
+    display: flex;
+    flex-direction: column;
+  }
+  .product-layout__sidebar--left {
+    height: 300px;
+  }
+  .product-layout__sidebar--right {
+    display: none;
+  }
 
   .nav-links li {
     width: 100%;
@@ -45,6 +55,7 @@
   .cart-icon {
     margin-left: 0.5rem;
   }
-
- 
+  .info-section p {
+    display: none;
+  }
 }

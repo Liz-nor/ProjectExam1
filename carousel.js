@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", initializeSlider); // --- Ensure t
 function initializeSlider() {
   if (slides.length > 0) {
     slides[slideIndex].classList.add("displaySlide"); // --- Show the first slide
-    intervalId = setInterval(nextSlide, 3000); // --- Change slide every 5 seconds
+    intervalId = setInterval(nextSlide, 5000); // --- Change slide every 5 seconds
   }
 }
 //
@@ -62,9 +62,9 @@ carousel.addEventListener("mouseenter", () => {
   clearInterval(intervalId);
 });
 
-carousel.addEventListener("mouseleave", () => {
-  intervalId = setInterval(nextSlide, 5000);
-});
+// carousel.addEventListener("mouseleave", () => {
+//   intervalId = setInterval(nextSlide, 5000);
+// });
 
 document.querySelector(".next").addEventListener("click", nextSlide);
 document.querySelector(".prev").addEventListener("click", prevSlide);

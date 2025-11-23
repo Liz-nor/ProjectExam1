@@ -10,6 +10,7 @@ const API_URL = "https://v2.api.noroff.dev/online-shop"; // --- Base API URL
 const container = document.querySelector("#container"); // --- Container to hold the product details
 const sizeSelect = document.getElementById("sizeSelect");
 
+// --- If shoes, makes you choose a size ---
 function areShoes(product) {
   if (!product.tags) return false;
 
@@ -17,7 +18,30 @@ function areShoes(product) {
 
   return product.tags.some((tag) => shoeTags.includes(tag.toLowerCase()));
 }
-
+async function handleShareClick(shareUrl, product) {
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: product.title || "Check out this product",
+        text: "Have a look at this product",
+        url: shareUrl,
+      });
+      return;
+    } catch (error) {
+      console.error("Share cancelled or failed", error);
+    }
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      alert("Link copied to clipboard!");
+      return;
+    } catch (error) {
+      console.log("Clipboard copy failed", error);
+    }
+  }
+  prompt("Copy this link:", shareUrl);
+}
 async function fetchAndCreateProducts() {
   // --- Main function to fetch and display product details ---
   const params = new URLSearchParams(window.location.search); // --- Get query parameters from the URL
@@ -40,19 +64,13 @@ async function fetchAndCreateProducts() {
       return;
     }
 
-    fetch(`https://v2.api.noroff.dev/online-shop/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        const product = data.data || data; // --- depending on the API-structure
+    console.log("Tags", product.tags);
 
-        console.log("Tags", product.tags);
-
-        if (areShoes(product)) {
-          sizeSelect.style.display = "block";
-        } else {
-          sizeSelect.style.display = "none";
-        }
-      });
+    if (areShoes(product)) {
+      sizeSelect.style.display = "block";
+    } else {
+      sizeSelect.style.display = "none";
+    }
 
     // --- Elements ---
     const productDiv = document.createElement("div");
@@ -63,7 +81,6 @@ async function fetchAndCreateProducts() {
     const description = document.createElement("p");
     const rating = document.createElement("p");
     const reviews = document.createElement("p");
-
     const backButton = document.createElement("a");
 
     // --- Classes ---
@@ -77,11 +94,39 @@ async function fetchAndCreateProducts() {
     description.className = "product-description";
     backButton.className = "back-button";
 
+    backButton.textContent = "Back to products";
+    backButton.href = "/index.html";
+
+    // --- Share button ---
+    const shareButton = document.createElement("button");
+    shareButton.type = "button";
+    shareButton.className = "product-share";
+    const tooltip = document.createElement("span");
+    tooltip.textContent = "Share this product";
+    tooltip.className = "tooltip-text";
+    shareButton.setAttribute("aria-label", "Share this product");
+    shareButton.innerHTML = `<i class="fa-solid fa-share-from-square"></i>`;
+
+    shareButton.addEventListener("mouseenter", () => {
+      tooltip.style.opacity = "1";
+    });
+    shareButton.addEventListener("mouseleave", () => {
+      tooltip.style.opacity = "0";
+    });
     // --- Content ---
     image.src = product.image?.url || "";
     image.alt = product.image?.alt || product.title || "Product image";
     title.textContent = product.title ?? "Untitled product";
     description.textContent = product.description ?? "";
+
+    // ---Share URL ---
+    const shareUrl = `${window.location.origin}${
+      window.location.pathname
+    }?id=${encodeURIComponent(product.id)}`;
+
+    shareButton.addEventListener("click", () => {
+      handleShareClick(shareUrl, product);
+    });
 
     // --- Price logic (cross out original when discounted) ---
     const hasDiscount =
@@ -135,16 +180,19 @@ async function fetchAndCreateProducts() {
     // --- Compose ---
     productDiv.appendChild(image);
     productDiv.appendChild(title);
+    productDiv.appendChild(shareButton);
     productDiv.appendChild(price);
     if (hasDiscount) productDiv.appendChild(discounted);
     productDiv.appendChild(description);
     productDiv.appendChild(rating);
     productDiv.appendChild(reviews);
     productDiv.appendChild(backButton);
+    shareButton.appendChild(tooltip);
+
     container.appendChild(productDiv);
   } catch (err) {
     container.textContent = "Something went wrong loading the product.";
-    // Optional: console.error(err);
+    console.error(err);
   }
 }
 

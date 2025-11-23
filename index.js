@@ -8,6 +8,29 @@ import "./components/navbar.js"; // --- Importing the navbar component to be use
 const API_URL = "https://v2.api.noroff.dev/online-shop";
 const container = document.querySelector("#container"); // --- Selects and HTML element with the ID container where the proucts will be displayed
 
+function extraReviweMessages(product) {
+  const messages = [];
+
+  product.forEach((product) => {
+    if (Array.isArray(product.reviews)) {
+      product.reviews.forEach((review) => {
+        if (review.description && review.description.trim() !== "") {
+          messages.push(`"${review.description.trim()}" - ${product.title}`);
+        }
+      });
+    } else if (
+      typeof product.reviews === "string" &&
+      product.reviews.trim() !== ""
+    ) {
+      messages.push(`"${product.reviews.trim()}" - ${product.title}`);
+    }
+  });
+  if (messages.length === 0) {
+    messages.push("⭐ No reviews yet - be the first!");
+  }
+
+  return messages;
+}
 async function fetchProducts() {
   // --- Asynchronous function to fetch products from the API, wait for the respons and insert them into the page
   try {
@@ -17,7 +40,7 @@ async function fetchProducts() {
 
     products.forEach((product) => {
       // --- For each product, this creates and appends a new visual card with image, title, price etc
-      const card = document.createElement("div"); // --- Creating dynamic HTML elements for each product
+      const card = document.createElement("article"); // --- Creating dynamic HTML elements for each product
       const image = document.createElement("img");
       const content = document.createElement("div");
       const title = document.createElement("h2");
@@ -27,14 +50,12 @@ async function fetchProducts() {
       const reviews = document.createElement("p");
       const anchor = document.createElement("a");
 
-      
-      card.className = "card"; //assigning class names for use in CSS
-      image.className = "image";
-      content.className = "content";
-      title.className = "title";
-      price.className = "price";
-      discountedPrice.className = "discounted-price";
-      
+      card.className = "product-card"; //assigning class names for use in CSS
+      image.className = "product-card__image";
+      content.className = "product-card__content";
+      title.className = "product-card__title";
+      price.className = "product-card__price";
+      discountedPrice.className = "product-card__discount";
 
       image.src = product.image.url; // --- Setting the content of each element based on the product data
       image.alt = product.image.alt;
@@ -44,7 +65,10 @@ async function fetchProducts() {
       discountedPrice.style.color = "black";
       price.textContent = product.price;
       discountedPrice.textContent = product.discountedPrice;
-      
+
+      const products = data.data || [];
+      const reviewMessages = extraReviweMessages(products);
+      initReviewLoop(reviewMessages);
 
       const hasDiscount =
         typeof product.discountedPrice === "number" &&
@@ -88,6 +112,24 @@ async function fetchProducts() {
   } catch (error) {
     console.error("Failed to fetch and create products", error);
   }
+}
+function initReviewLoop(messages) {
+  const box = document.getElementById("reviewLoop");
+  if (!box) return;
+
+  let index = 0;
+  function showNext() {
+    box.style.opacity = 0;
+
+    setTimeout(() => {
+      box.textContent = messages[index];
+      box.style.opacity = 1;
+
+      index = (index + 1) % messages.length;
+    }, 600);
+  }
+  showNext();
+  setInterval(showNext, 3000);
 }
 
 fetchProducts(); // --- Calling the function to execute the code and display the products

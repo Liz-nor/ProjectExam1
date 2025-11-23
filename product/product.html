@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="/css/pages/navbar.css" />
     <link rel="stylesheet" href="/css/pages/cart.css">
+    <link rel="stylesheet" href="/css/pages/footer.css">
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -24,6 +25,10 @@
       sizes="16x16"
       href="../assets/favicon/favicon-16x16.png"
     />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
     <link rel="shortcut icon" href="../assets/favicon/favicon.ico" />
     <link rel="manifest" href="../assets/favicon/site.webmanifest" />
     <script type="module" src="./product.js" defer></script>
@@ -39,13 +44,13 @@
             <img src="../assets/1.png" class="logo" alt="Lènoir Lane logo" />
           </a>
         </div>
-        <ul class="nav-links">
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/about.html">About</a></li>
-          <li><a href="/contact.html">Contact Us</a></li>
-          <li><a href="pages/login.html">Login</a></li>
-          <li><a href="/pages/signup.html">Sign Up</a></li>
-        </ul>
+        <div class="nav-links" id="navbar">
+          <a href="/index.html">Home</a>
+          <a href="/about.html">About</a>
+          <a href="/contact.html">Contact Us</a>
+          <a href="/account/login.html">Login</a>
+          <a href="/account/register.html">Sign Up</a>
+        </div>
         <div class="cart-icon">
           <img
             src="/assets/cart-shopping-svgrepo-com.svg"
@@ -60,8 +65,21 @@
         </div>
       </nav>
     </header>
-    <main>
-      <div id="container" class="product-container"></div>
+    <main class="product-layout">
+      <aside class="product-layout__sidebar product-layout__sidebar--left">
+        <h2></h2>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <h3></h3>
+      </aside>
+      <div id="container" class="product-container">
+      </div>
+      <aside class="product-layout__sidebar product-layout__sidebar--right">
+        <h2 class="checkout">Your Cart</h2>
+      </aside>
       <div id="cart" class="hidden">
     <h2>Your Cart</h2>
     <div id="cart-items"></div>
@@ -78,13 +96,63 @@
         <option>39</option>
         <option>40</option>
       </select>
-      <!-- <select id="colorSelect">
-      <option value="">Please pick color</option>
-      <option>Red</option>
-      <option>Blue</option>
-      <option>Black</option>
-    </select> -->
       <div class="checkout">Add to Cart</div>
     </main>
   </body>
+  <footer class="footer">
+    <div class="footer-section">
+      <h2>Lènoir Lane</h2>
+      <p>
+        Lènoir Lane is a newly established luxury brand dedicated to crafting
+        high-end products that blend timeless design with modern sophistication.
+      </p>
+    </div>
+
+    <div class="footer-section about-us-section">
+      <h2>About Us</h2>
+      <ul>
+        <li><a href="">Find Us</a></li>
+        <li><a href="">Shipping</a></li>
+        <li><a href="/account/login.html">Login</a></li>
+        <li><a href="/account/register.html">Register</a></li>
+        <li><a href="">Reviews</a></li>
+      </ul>
+      <p></p>
+    </div>
+    <div class="footer-section">
+      <h2>Follow Us</h2>
+      <img
+        class="partner-icons"
+        src="/assets/facebook-svgrepo-com.svg"
+        alt=""
+      />
+      <img
+        class="partner-icons"
+        src="/assets/tiktok-logo-logo-svgrepo-com.svg"
+        alt=""
+      />
+      <img
+        class="partner-icons"
+        src="/assets/instagram-1-svgrepo-com.svg"
+        alt=""
+      />
+      <p></p>
+    </div>
+    <div class="footer-section">
+      <h2>Our Partners</h2>
+      <img
+        class="partner-icons"
+        src="/assets/mastercard-old-svgrepo-com.svg"
+        alt=""
+      />
+      <img
+        class="partner-icons"
+        src="/assets/klarna-logo-svgrepo-com.svg"
+        alt=""
+      />
+      <img class="partner-icons" src="/assets/visa-svgrepo-com.svg" alt="" />
+      <img class="partner-icons" src="/assets/Posten_idfMm1ADA9_0.png" alt="" />
+      <p></p>
+    </div>
+  </footer>
 </html>

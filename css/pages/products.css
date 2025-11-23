@@ -1,8 +1,7 @@
 /* --- Product Card --- */
 .product-details {
   border: 2px solid var(--primary-color-dark-orange);
-  width: 450px;
-  margin: 20px auto;
+  margin: 50px auto;
   box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.2);
 }
 .product-image {
@@ -18,4 +17,27 @@
 .reviews {
   font-weight: 700;
   font-style: oblique;
+}
+
+.product-share {
+  height: 25px;
+  width: 25px;
+}
+.back-button {
+  text-decoration: none;
+  color: black;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+.tooltip-text {
+  position: absolute;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  width: 120px;
+  background-color: var(--primary-color-dark-orange);
+  color: white;
+  text-align: center;
+  padding: 5px 0;
 }
