@@ -58,4 +58,14 @@
   .info-section p {
     display: none;
   }
+  .footer {
+    width: 100%;
+    flex-direction: row;
+  }
+  .footer-links {
+    display: none;
+  }
+  .footer-section.open .footer-links {
+    display: block;
+  }
 }
