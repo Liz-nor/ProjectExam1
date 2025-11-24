@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/pages/navbar.css" />
     <link rel="stylesheet" href="css/media.css" />
     <link rel="stylesheet" href="css/pages/cart.css" />
@@ -50,7 +50,7 @@
     <header id="navbar">
       <nav class="nav-container">
         <div class="logo-container">
-          <a href="/index.html">
+          <a href="index.html">
             <img src="assets/1.png" class="logo" alt="Lènoir Lane logo" />
           </a>
         </div>
@@ -132,22 +132,17 @@
       </aside>
       <section class="product-section">
         <h2 class="section-title">Our Products</h2>
-        <div class="container" id="container"></div>
+        <div class="container product-grid" id="container"></div>
         <div id="productContainer" class="product-grid"></div>
+        <div id="pagination-controls">
+          <button id="prevBtn">Previous</button>
+          <span id="page-number"></span>
+          <button id="nextBtn">Next</button>
+        </div>
       </section>
       <aside class="product-layout__sidebar product-layout__sidebar--right">
-        <img src="assets/img/baris-selcen-NcKZUp4FXaQ-unsplash.jpg" alt="" />
+        <img src="/assets/img/baris-selcen-NcKZUp4FXaQ-unsplash.jpg" alt="" />
       </aside>
-      <div class="pagination">
-        <a href="#">&laquo;</a>
-        <a href="#">1</a>
-        <a class="active" href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#">6</a>
-        <a href="#">&raquo;</a>
-      </div>
       <div class="page-wrapper">
         <div id="cart" class="hidden">
           <h2>Your Cart</h2>

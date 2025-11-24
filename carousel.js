@@ -62,9 +62,9 @@ carousel.addEventListener("mouseenter", () => {
   clearInterval(intervalId);
 });
 
-// carousel.addEventListener("mouseleave", () => {
-//   intervalId = setInterval(nextSlide, 5000);
-// });
+carousel.addEventListener("mouseleave", () => {
+  intervalId = setInterval(nextSlide, 5000);
+});
 
 document.querySelector(".next").addEventListener("click", nextSlide);
 document.querySelector(".prev").addEventListener("click", prevSlide);

@@ -26,6 +26,7 @@
   height: 50px;
   width: auto;
   display: block;
+  border-radius: 8px;
 }
 
 #menu-checkbox {
