@@ -37,10 +37,10 @@
       href="https://fontawesome.com/icons/user?f=classic&s=solid"
     />
     <script type="module" src="index.js" defer></script>
-    <script type="module" src="carousel.js" defer></script>
-    <script type="module" src="components/navbar.js" defer></script>
-    <script type="module" src="components/cart.js" defer></script>
-    <script type="module" src="components/footer.js" defer></script>
+    <script type="module" src="/carousel.js" defer></script>
+    <script type="module" src="/components/navbar.js" defer></script>
+    <script type="module" src="/components/cart.js" defer></script>
+    <script type="module" src="/components/footer.js" defer></script>
     <title>
       Browse our exclusive products and fill your everyday life with a little
       more glamour
@@ -48,6 +48,7 @@
   </head>
   <body>
     <header id="navbar">
+      <input type="checkbox" id="menu-checkbox">
       <nav class="nav-container">
         <div class="logo-container">
           <a href="index.html">
@@ -55,25 +56,32 @@
           </a>
         </div>
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="account/login.html">Login</a></li>
-          <li><a href="account/register.html">Sign Up</a></li>
-          <li>
+          <li class="auth-logged-in"><a href="index.html">Home</a></li>
+          <li class="auth-logged-in"><a href="about.html">About</a></li>
+          <li class="auth-logged-in"><a href="contact.html">Contact Us</a></li>
+          <li class="auth-logged-out">
+            <a href="account/login.html">Login</a>
+          </li>
+          <li class="auth-logged-out">
+            <a href="account/register.html">Sign Up</a>
+          </li>
+          <li class="auth-logged-in">
             <a href="pages/my-account.html">
               <i class="fa-solid fa-user"></i>
             </a>
           </li>
+          <li class="auth-logged-in">
+            <button id="logout-btn" class="logout-btn">Logout</button>
+          </li>
         </ul>
-        <div class="cart-icon">
+        <div class="cart-icon auth-logged-in">
           <img
             src="assets/cart-shopping-svgrepo-com.svg"
             class="shopping-cart"
             alt="shopping cart"
           />
-          <span>0</span>
-          <input type="checkbox" id="menu-checkbox" />
+        <span>0</span>
+          </div>
           <label for="menu-checkbox" class="hamburger-icon">
             <i class="fa-solid fa-bars"></i>
           </label>

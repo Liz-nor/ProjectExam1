@@ -1,4 +1,4 @@
-// --- Image Carousel ---
+// --- Image Carousel
 
 const slides = document.querySelectorAll(".slides img"); // --- Select all images within the slides container
 const inspectBtn = document.getElementById("inspectGlobalBtn");
@@ -37,7 +37,7 @@ function showSlide(index) {
   slides[slideIndex].classList.add("displaySlide");
 }
 function prevSlide() {
-  clearInterval(intervalId); // Clear the existing interval
+  clearInterval(intervalId); // --- Clear the existing interval
   slideIndex--;
   showSlide(slideIndex);
 }

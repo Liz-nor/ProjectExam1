@@ -2,7 +2,6 @@
   background-color: var(--primary-color-dark-orange);
   width: 100%;
   display: flex;
-  flex-direction: column;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   position: sticky;
   z-index: 100;
@@ -28,15 +27,20 @@
   display: block;
   border-radius: 8px;
 }
-
-#menu-checkbox {
-  display: none;
-}
-
-.hamburger-icon {
-  display: none;
+.logout-btn {
+  box-shadow: var(--button-shadow);
+  border-radius: var(--rounded-corners);
+  border: none;
+  background: var(--button-color);
+  width: 10em;
+  padding: 0.5rem 1rem;
   cursor: pointer;
-  color: #000;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.logout-btn:hover {
+  box-shadow: var(--button-hover-shadow);
+  transform: translateY(0.2rem);
 }
 
 .nav-links {
@@ -68,17 +72,18 @@
 .nav-links a:hover::after {
   width: 100%;
 }
-
-#menu-checkbox:checked ~ .nav-links {
-  display: block;
-  margin-left: 10px;
-  order: 1;
+/* Hamburger menu */
+#menu-checkbox {
+  display: none;
 }
-
+.hamburger-icon {
+  display: none;
+  cursor: pointer;
+  color: #000;
+  font-size: 24px;
+  z-index: 1001;
+}
 .cart-icon {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
   cursor: pointer;
 }
 

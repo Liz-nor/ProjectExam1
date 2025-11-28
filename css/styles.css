@@ -138,6 +138,7 @@ body {
   opacity: 0;
   transition: opacity 0.6s ease;
 }
+
 /* --- Carousel --- */
 .carousel-container {
   background-color: var(--primary-color-dark-orange);
@@ -233,6 +234,8 @@ img.displaySlide {
   border-radius: 8px;
   list-style-type: none;
 }
+
+/* Pagination */
 #pagination-controls {
   margin-top: 2rem;
   display: flex;
@@ -243,8 +246,6 @@ img.displaySlide {
 
 #pagination-controls button {
   padding: 0.5rem 1rem;
-  border: 1px solid #333;
-  background: #fff;
   cursor: pointer;
 }
 
@@ -255,4 +256,21 @@ img.displaySlide {
 
 #page-number {
   font-weight: 600;
+}
+#nextBtn,
+#prevBtn {
+  box-shadow: var(--button-shadow);
+  border-radius: var(--rounded-corners);
+  border: none;
+  background: var(--button-color);
+  width: 10em;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+#nextBtn:hover,
+#prevBtn:hover {
+  box-shadow: var(--button-hover-shadow);
+  transform: translateY(0.2rem);
 }

@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="/css/media.css" />
     <link rel="stylesheet" href="/css/pages/footer.css" />
     <script type="module" src="validation.js" defer></script>
-    <script type="module" src="components/navbar.js" defer></script>
+    <script type="module" src="../components/navbar.js" defer></script>
   </head>
   <body>
     <header id="navbar">
@@ -40,10 +40,10 @@
           </a>
         </div>
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="../index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="account/register.html">Signup</a></li>
+          <li><a href="register.html">Signup</a></li>
         </ul>
       </nav>
     </header>
@@ -101,6 +101,12 @@
         Not registered yet?
         <a href="register.html">Create an account</a>
       </p>
+    </div>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <p id="modal-message"></p>
+      </div>
     </div>
   </body>
   <footer class="footer">

@@ -8,15 +8,15 @@ import "./components/navbar.js";
 
 const API_URL = "https://v2.api.noroff.dev/online-shop";
 
-// 👉 Use the product grid container for the cards
+// --- Use the product grid container for the cards
 const container = document.querySelector("#container");
 
-// --- PAGINATION STATE ---
+// --- Pagination state
 let allProducts = [];
 let currentPage = 1;
 const recordsPerPage = 12;
 
-// --- REVIEW MESSAGE HANDLER ---
+// --- Review messge
 function extraReviewMessages(products) {
   const messages = [];
 
@@ -63,7 +63,7 @@ function initReviewLoop(messages) {
   setInterval(showNext, 3000);
 }
 
-// --- RENDER ONE PAGE OF PRODUCTS ---
+// --- Rendering one page of products
 function displayPage(page) {
   if (!container) return;
 
@@ -71,7 +71,7 @@ function displayPage(page) {
   const endIndex = startIndex + recordsPerPage;
   const pageProducts = allProducts.slice(startIndex, endIndex);
 
-  // Clear previous content
+  // --- Clear previous content
   container.innerHTML = "";
 
   pageProducts.forEach((product) => {
@@ -115,7 +115,7 @@ function displayPage(page) {
       discountedPrice.textContent = "";
     }
 
-    reviews.textContent = ""; // or product.reviews if you want raw
+    reviews.textContent = "";
     anchor.href = `product/product.html?id=${product.id}`;
     anchor.style.textDecoration = "none";
 
@@ -136,12 +136,11 @@ function displayPage(page) {
     card.appendChild(image);
     card.appendChild(content);
     card.appendChild(rating);
-    // card.appendChild(button); // if you re-enable it
     anchor.appendChild(card);
     container.appendChild(anchor);
   });
 
-  // Update page number + button states
+  // --- Update page number + button states
   const totalPages = Math.ceil(allProducts.length / recordsPerPage);
   const pageNumberSpan = document.getElementById("page-number");
   const prevBtn = document.getElementById("prevBtn");
@@ -155,7 +154,7 @@ function displayPage(page) {
   if (nextBtn) nextBtn.disabled = page >= totalPages;
 }
 
-// --- BUTTON HANDLERS ---
+// --- Button handlers ---
 function nextPage() {
   const totalPages = Math.ceil(allProducts.length / recordsPerPage);
   if (currentPage < totalPages) {
@@ -171,18 +170,18 @@ function prevPage() {
   }
 }
 
-// --- FETCH PRODUCTS ONCE ---
+// --- Fetch products
 async function fetchProducts() {
   try {
     const res = await fetch(API_URL);
     const data = await res.json();
     allProducts = data.data || [];
 
-    // Init review loop once using ALL products
+    // --- Init review loop once using ALL products
     const reviewMessages = extraReviewMessages(allProducts);
     initReviewLoop(reviewMessages);
 
-    // Show first page
+    // --- Show first page
     displayPage(currentPage);
   } catch (error) {
     console.error("Failed to fetch and create products", error);
@@ -192,7 +191,7 @@ async function fetchProducts() {
   }
 }
 
-// Hook up pagination buttons
+// --- Hook up pagination buttons
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 

@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/pages/products.css" />
+    <link rel="stylesheet" href="/css/pages/products.css" />
     <link rel="stylesheet" href="../css/styles.css" />
-    <link rel="stylesheet" href="css/pages/navbar.css" />
-    <link rel="stylesheet" href="css/pages/cart.css">
-    <link rel="stylesheet" href="css/pages/footer.css">
+    <link rel="stylesheet" href="/css/pages/navbar.css" />
+    <link rel="stylesheet" href="/css/pages/cart.css" />
+    <link rel="stylesheet" href="/components/footer.js" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -25,10 +25,10 @@
       sizes="16x16"
       href="../assets/favicon/favicon-16x16.png"
     />
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <link rel="shortcut icon" href="../assets/favicon/favicon.ico" />
     <link rel="manifest" href="../assets/favicon/site.webmanifest" />
     <script type="module" src="product.js" defer></script>
@@ -41,24 +41,36 @@
       <nav class="nav-container">
         <div class="logo-container">
           <a href="index.html">
-            <img src="../assets/1.png" class="logo" alt="Lènoir Lane logo" />
+            <img src="assets/1.png" class="logo" alt="Lènoir Lane logo" />
           </a>
         </div>
-        <div class="nav-links" id="navbar">
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact Us</a>
-          <a href="account/login.html">Login</a>
-          <a href="account/register.html">Sign Up</a>
-        </div>
-        <div class="cart-icon">
+        <ul class="nav-links">
+          <li class="auth-logged-in"><a href="index.html">Home</a></li>
+          <li class="auth-logged-in"><a href="about.html">About</a></li>
+          <li class="auth-logged-in"><a href="contact.html">Contact Us</a></li>
+          <li class="auth-logged-out">
+            <a href="account/login.html">Login</a>
+          </li>
+          <li class="auth-logged-out">
+            <a href="../account/register.html">Sign Up</a>
+          </li>
+          <li class="auth-logged-in">
+            <a href="../pages/my-account.html">
+              <i class="fa-solid fa-user"></i>
+            </a>
+          </li>
+          <li class="auth-logged-in">
+            <button id="logout-btn" class="logout-btn">Logout</button>
+          </li>
+        </ul>
+        <div class="cart-icon auth-logged-in">
           <img
-            src="assets/cart-shopping-svgrepo-com.svg"
+            src="../assets/cart-shopping-svgrepo-com.svg"
             class="shopping-cart"
             alt="shopping cart"
           />
-          <span>0</span>
-          <input type="checkbox" id="menu-checkbox" />
+        <span>0</span>
+          </div>
           <label for="menu-checkbox" class="hamburger-icon">
             <i class="fa-solid fa-bars"></i>
           </label>
@@ -76,30 +88,32 @@
         <h3></h3>
       </aside>
       <div id="container" class="product-container">
+        <select id="sizeSelect">
+          <option value="">Please pick size</option>
+          <option>35</option>
+          <option>36</option>
+          <option>37</option>
+          <option>38</option>
+          <option>39</option>
+          <option>40</option>
+        </select>
       </div>
       <aside class="product-layout__sidebar product-layout__sidebar--right">
         <h2 class="checkout">Your Cart</h2>
       </aside>
       <div id="cart" class="hidden">
-    <h2>Your Cart</h2>
-    <div id="cart-items"></div>
-    <p id="cart-total"></p>
-    <button id="clear-cart">Clear Cart</button>
-    <button id="close-cart">Close</button>
-    <button id="go-to-checkout">Check-out</button>
-      <select id="sizeSelect">
-        <option value="">Please pick size</option>
-        <option>35</option>
-        <option>36</option>
-        <option>37</option>
-        <option>38</option>
-        <option>39</option>
-        <option>40</option>
-      </select>
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <p id="cart-total"></p>
+        <button id="clear-cart">Clear Cart</button>
+        <button id="close-cart">Close</button>
+        <button id="go-to-checkout">Check-out</button>
+      </div>
+
       <div class="checkout">Add to Cart</div>
     </main>
   </body>
-  <footer class="footer">
+  <!-- <footer class="footer">
     <div class="footer-section">
       <h2>Lènoir Lane</h2>
       <p>
@@ -154,5 +168,5 @@
       <img class="partner-icons" src="assets/Posten_idfMm1ADA9_0.png" alt="" />
       <p></p>
     </div>
-  </footer>
+  </footer> -->
 </html>

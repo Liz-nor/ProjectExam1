@@ -26,17 +26,17 @@ document.addEventListener("DOMContentLoaded", () => {
     <h2 class="footer-title">Follow Us</h2>
     <img
         class="partner-icons"
-        src="/assets/facebook-svgrepo-com.svg"
+        src="../assets/facebook-svgrepo-com.svg"
         alt=""
     />
     <img
         class="partner-icons"
-        src="/assets/tiktok-logo-logo-svgrepo-com.svg"
+        src="../assets/tiktok-logo-logo-svgrepo-com.svg"
         alt=""
     />
     <img
         class="partner-icons"
-        src="/assets/instagram-1-svgrepo-com.svg"
+        src="../assets/instagram-1-svgrepo-com.svg"
         alt=""
     />
     </div>
@@ -44,16 +44,16 @@ document.addEventListener("DOMContentLoaded", () => {
     <h2 class="footer-title">Our Partners</h2>
     <img
         class="partner-icons"
-        src="/assets/mastercard-old-svgrepo-com.svg"
+        src="../assets/mastercard-old-svgrepo-com.svg"
         alt=""
     />
     <img
         class="partner-icons"
-        src="/assets/klarna-logo-svgrepo-com.svg"
+        src="../assets/klarna-logo-svgrepo-com.svg"
         alt=""
     />
-    <img class="partner-icons" src="/assets/visa-svgrepo-com.svg" alt="" />
-    <img class="partner-icons" src="/assets/Posten_idfMm1ADA9_0.png" alt="" />
+    <img class="partner-icons" src="../assets/visa-svgrepo-com.svg" alt="" />
+    <img class="partner-icons" src="../assets/Posten_idfMm1ADA9_0.png" alt="" />
     </div>
 </footer>`;
 

@@ -1,6 +1,37 @@
+const ALLOWED_DOMAIN = "@stud.noroff.no"; // --- change to your real email
+const AUTH_FLAG_KEY = "isLoggedIn";
+const AUTH_EMAIL_KEY = "userEmail";
+
+function showModal(message, onClose) {
+  const modal = document.getElementById("modal");
+  const modalMessage = document.getElementById("modal-message");
+  const closeBtn = document.querySelector(".modal-close");
+
+  modalMessage.innerText = message;
+  modal.style.display = "block";
+
+  const closeModal = () => {
+    modal.style.display = "none";
+    if (onClose && typeof onClose === "function") {
+      onClose();
+    }
+  };
+
+  closeBtn.onclick = closeModal;
+
+  window.onclick = (event) => {
+    if (event.target === modal) {
+      closeModal();
+    }
+  };
+}
 function createAccount(email, password) {
   if (!email || !password) {
     return "Fill in all fields.";
+  }
+
+  if (!email.toLowerCase().endsWith(ALLOWED_DOMAIN.toLowerCase())) {
+    return "Only stud.noroff.no accounts can log in.";
   }
 
   if (localStorage.getItem(email)) {
@@ -16,15 +47,22 @@ function login(email, password) {
     return "Fill in all fields.";
   }
 
+  if (!email.toLowerCase().endsWith(ALLOWED_DOMAIN.toLowerCase())) {
+    return "This email is not allowed to log in.";
+  }
+
   const storedPassword = localStorage.getItem(email);
 
   if (!storedPassword) {
     return "Account does not exist.";
   }
 
-  if (!storedPassword !== password) {
+  if (storedPassword !== password) {
     return "Incorrect password.";
   }
+
+  localStorage.setItem(AUTH_FLAG_KEY, "true");
+  localStorage.setItem(AUTH_EMAIL_KEY, email);
 
   return "Login successful.";
 }
@@ -40,10 +78,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const error_message = document.getElementById("error-messages");
 
   form.addEventListener("submit", (e) => {
+    e.preventDefault(); // --- Dont refresh the page after logging in to show the modals
     let errors = [];
 
     if (name_input) {
-      // If we have a name input then we are in the signup
       errors = getSignupFormErrors(
         name_input.value,
         email_input.value,
@@ -52,21 +90,31 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     } else {
       errors = getLoginFormErrors(email_input.value, password_input.value);
-      // If we dont have a name input we are in the login
     }
 
     if (errors.length > 0) {
-      // If there are any errors
-      e.preventDefault();
+      // --- If there are any errors
       error_message.innerText = errors.join(".  ");
       return;
     }
     if (name_input) {
       const result = createAccount(email_input.value, password_input.value);
-      alert(result);
+      if (result === "Account created.") {
+        showModal(result, () => {
+          window.location.href = "../index.html";
+        });
+      } else {
+        showModal(result);
+      }
     } else {
       const result = login(email_input.value, password_input.value);
-      alert(result);
+      if (result === "Login successful.") {
+        showModal(result, () => {
+          window.location.href = "../index.html";
+        });
+      } else {
+        showModal(result);
+      }
     }
   });
 
