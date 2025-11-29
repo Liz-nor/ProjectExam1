@@ -1,11 +1,12 @@
-@import url(/css/media.css);
-@import url(/css/variables.css);
+@import url(../css/media.css);
+@import url(../css/variables.css);
 .footer {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   background-color: var(--primary-color-dark-orange);
   box-shadow: 0 10px rgba(0, 0, 0, 0.15);
+  border: 4px solid black;
 }
 .footer p {
   font-size: 1.1rem;
@@ -18,6 +19,8 @@
   margin: 5px;
 }
 .footer-section {
+  /* display: flex;
+  flex-direction: row; */
   width: 200px;
 }
 .footer-section li {

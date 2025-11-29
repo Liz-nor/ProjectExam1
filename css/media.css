@@ -86,14 +86,14 @@
   .info-section p {
     display: none;
   }
-  .footer {
+  #footer {
     width: 100%;
     flex-direction: row;
   }
-  .footer-links {
+  #footer-links {
     display: none;
   }
-  .footer-section.open .footer-links {
+  #footer-section.open #footer-links {
     display: block;
   }
 }

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap");
 @import url("./variables.css");
-@import url("/css/media.css");
-@import url("/css/pages/footer.css");
+@import url("./css/media.css");
+@import url("./css/pages/footer.css");
 * {
   font-family: "GFS Didot", Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -108,7 +108,6 @@ body {
   text-align: center;
   font-size: 2.2rem;
   font-weight: 800;
-  text-shadow: 3px 3px grey;
 }
 
 .container {

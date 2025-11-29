@@ -182,7 +182,7 @@ export function initCartUI() {
 
   if (checkoutBtn) {
     checkoutBtn.addEventListener("click", () => {
-      window.location.href = "checkout.html";
+      window.location.href = "../account/checkout.html";
     });
   }
 }

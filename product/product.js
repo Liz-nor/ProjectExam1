@@ -10,7 +10,7 @@ const API_URL = "https://v2.api.noroff.dev/online-shop"; // --- Base API URL
 const container = document.querySelector("#container"); // --- Container to hold the product details
 const sizeSelect = document.getElementById("sizeSelect");
 
-// --- If shoes, makes you choose a size ---
+// --- If shoes, makes you choose a size
 function areShoes(product) {
   if (!product.tags) return false;
 
@@ -42,8 +42,67 @@ async function handleShareClick(shareUrl, product) {
   }
   prompt("Copy this link:", shareUrl);
 }
+async function fetchSimilarProducts(currentProduct) {
+  try {
+    const response = await fetch(API_URL);
+    const data = await response.json();
+    const allProducts = data?.data || [];
+    // --- Filter through products that shares the same tags with the product in focus
+    const similarProducts = allProducts
+      .filter((product) => {
+        // Excluding the product already in focus
+        if (product.id === currentProduct.id) return false;
+        if (!product.tags || !currentProduct.tags) return false;
+        return product.tags.some((tag) =>
+          currentProduct.tags.some(
+            (currentTag) => currentTag.toLowerCase() === tag.toLowerCase()
+          )
+        );
+      })
+      .slice(0, 3);
+    return similarProducts;
+  } catch (error) {
+    console.error("Error fetching similar products:", error);
+    return [];
+  }
+}
+function renderSimilarProducts(products) {
+  const sidebar = document.querySelector(".product-layout__sidebar--left");
+  if (!sidebar) return;
+  sidebar.innerHTML = `<h2>Similar Products</h2>`;
+  sidebar.style.height = "auto";
+  if (products.length === 0) {
+    sidebar.innerHTML += `<p>No similar products found.</p>`;
+    return;
+  }
+  const listContainer = document.createElement("ul");
+  listContainer.className = "similar-product-list";
+
+  products.forEach((product) => {
+    const li = document.createElement("li");
+    li.className = "similar-product-item";
+
+    const link = document.createElement("a");
+    link.href = `product.html?id=${product.id}`;
+
+    const img = document.createElement("img");
+    img.src = product.image?.url || "";
+    img.alt = product.title || "Product";
+    img.className = "similar-product-image";
+
+    const title = document.createElement("p");
+    title.textContent = product.title || "Untitled";
+    title.className = "similar-product.title";
+
+    link.appendChild(img);
+    link.appendChild(title);
+    li.appendChild(link);
+    listContainer.appendChild(li);
+  });
+  sidebar.appendChild(listContainer);
+}
 async function fetchAndCreateProducts() {
-  // --- Main function to fetch and display product details ---
+  // --- Main function to fetch and display product details
   const params = new URLSearchParams(window.location.search); // --- Get query parameters from the URL
   const id = params.get("id"); // --- Extract the product ID
   console.log(id);
@@ -95,7 +154,7 @@ async function fetchAndCreateProducts() {
     backButton.className = "back-button";
 
     backButton.textContent = "Back to products";
-    backButton.href = "/index.html";
+    backButton.href = "../index.html";
 
     // --- Share button ---
     const shareButton = document.createElement("button");
@@ -153,29 +212,55 @@ async function fetchAndCreateProducts() {
 
     // --- Reviews ---
     if (Array.isArray(product.reviews) && product.reviews.length > 0) {
-      const reviewCount = product.reviews.length;
-      const reviewList = product.reviews
-        .map((r) => `⭐ ${r.rating}/5  ${r.description}`)
-        .join("\n");
-      reviews.textContent = `Reviews (${reviewCount}):\n- ${reviewList}`;
-    } else if (
-      typeof product.reviews === "string" &&
-      product.reviews.trim() !== ""
-    ) {
-      reviews.textContent = `Reviews: ${product.reviews}`;
-    } else {
-      reviews.textContent = "No reviews available... yet";
+      const reviewContainer = document.createElement("div");
+      reviewContainer.className = "reviewsContainer";
+
+      const reviewsTitle = document.createElement("h3");
+      reviewsTitle.textContent = `Reviews (${product.reviews.length})`;
+      reviewContainer.appendChild(reviewsTitle);
+
+      product.reviews.forEach((review) => {
+        const reviewItem = document.createElement("div");
+        reviewItem.className = "review-item";
+
+        const rating = document.createElement("span");
+        rating.className = "review-rating";
+        rating.textContent = `⭐ ${review.rating}/5`;
+
+        const description = document.createElement("p");
+        description.className = "review-description";
+        description.textContent = review.description;
+
+        reviewItem.appendChild(rating);
+        reviewItem.appendChild(description);
+        reviewContainer.appendChild(reviewItem);
+      });
+      productDiv.appendChild(reviewContainer);
     }
-    // --- Add to Cart ---
-    // const addToCartBtn = document.createElement("button");
-    // addToCartBtn.className = "addToCartBtn";
-    // addToCartBtn.textContent = "Add To Cart";
-    // addToCartBtn.addEventListener("click", (event) => {
-    //   event.preventDefault();
-    //   addToCart(product);
-    //   updateCartCounter();
-    //   renderCart();
-    // });
+    // --- Add to Cart
+    const addToCartBtn = document.createElement("button");
+    addToCartBtn.className = "addToCartBtn";
+    addToCartBtn.textContent = "Add To Cart";
+    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+    if (isLoggedIn) {
+      addToCartBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+        addToCart(product);
+        updateCartCounter();
+        renderCart();
+        showModal("Product added to cart!");
+      });
+      productDiv.appendChild(addToCartBtn);
+    } else {
+      const loginPromt = document.createElement("button");
+      loginPromt.className = "addToCartBtn";
+      loginPromt.textContent = "Log in to purchase";
+      loginPromt.addEventListener("click", () => {
+        window.location.href = "/account/login.html";
+      });
+      productDiv.appendChild(loginPromt);
+    }
 
     // --- Compose ---
     productDiv.appendChild(image);
@@ -186,10 +271,14 @@ async function fetchAndCreateProducts() {
     productDiv.appendChild(description);
     productDiv.appendChild(rating);
     productDiv.appendChild(reviews);
+
     productDiv.appendChild(backButton);
     shareButton.appendChild(tooltip);
 
     container.appendChild(productDiv);
+
+    const similarProducts = await fetchSimilarProducts(product);
+    renderSimilarProducts(similarProducts);
   } catch (err) {
     container.textContent = "Something went wrong loading the product.";
     console.error(err);

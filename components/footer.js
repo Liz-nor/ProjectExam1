@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!footerContainer) return;
 
   footerContainer.innerHTML = `
-    <footer">
+    <footer class="footer">
     <div class="footer-section info-section">
     <h2 class="footer-title">Lènoir Lane</h2>
     <p>
@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
     <ul class="footer-links">
         <li><a href="">Find Us</a></li>
         <li><a href="">Shipping</a></li>
-        <li><a href="/account/login.html">Login</a></li>
-        <li><a href="/account/register.html">Register</a></li>
+        <li class="auth-logged-in"><a href="../account/login.html">Login</a></li>
+        <li class="auth-logged-in"><a href="../account/register.html">Register</a></li>
         <li><a href="">Reviews</a></li>
     </ul>
     </div>

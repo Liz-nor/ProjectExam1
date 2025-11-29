@@ -51,7 +51,7 @@
       <input type="checkbox" id="menu-checkbox">
       <nav class="nav-container">
         <div class="logo-container">
-          <a href="index.html">
+          <a href="../index.html">
             <img src="../assets/1.png" class="logo" alt="Lènoir Lane logo" />
           </a>
         </div>
@@ -87,70 +87,30 @@
         </div>
       </nav>
     </header>
-    <div class="carousel-container">
-      <div class="slider" id="carousel">
-        <div class="slides">
-          <div class="imgHandbag">
-            <img
-              src="../assets/img/handbag_1.jpg"
-              alt=""
-              id="imgHandbag"
-              data-id="3b43b2e4-62b0-4c02-9166-dffa46a0388c"
-            />
-          </div>
-          <div class="imgHeadphones">
-            <img
-              src="../assets/img/headphones_2.jpg"
-              alt=""
-              id="imgHeadphones"
-              data-id="159fdd2f-2b12-46de-9654-d9139525ba87"
-            />
-          </div>
-          <div class="imgPerfume">
-            <img
-              src="../assets/img/3.png"
-              alt=""
-              id="imgPerfume"
-              data-id="109566af-c5c2-4f87-86cb-76f36fb8d378"
-            />
-          </div>
+    <main>
+        <h1 class="checkout-header">Checkout</h1>
+      <div id="productContainer"></div>
+      <div id="checkout-container">
+        <form method="get" class="checkoutForm">
+        <div class="personalInfo">
+          <h2>Billing Address</h2>
+            <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Enter Full Name">
+            <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter Your Email">
+            <label for="address">Address</label>
+          <input type="text" id="address" placeholder="Enter Your Address">
+            <label for="city">City</label>
+          <input type="text" id="city">
+            <label for="country">Country</label>
+          <input type="text" id="country" placeholder="Enter Your Country">
+            <label for="cardName">Name On Card</label>
+          <input type="text" id="cardName" placeholder="Enter Name On Card">
+          <button id="check-out" type="button">Proceed to Checkout</button>
         </div>
-        <button class="prev">
-          <i class="fa fa-arrow-left" aria-hidden="true"></i>
-        </button>
-        <button class="next">
-          <i class="fa fa-arrow-right" aria-hidden="true"></i>
-        </button>
-        <button id="inspectGlobalBtn" class="inspectBtn">
-          Click me to see more
-        </button>
+      </form>
       </div>
-    </div>
-    <main class="product-layout">
-      <aside class="product-layout__sidebar product-layout__sidebar--left">
-        <h2>Why buy from us</h2>
-        <ul>
-          <li>🚛Free Shipping</li>
-          <li>🔒Safe Payment</li>
-          <li>⭐Check out the reviews</li>
-        </ul>
-        <h3>Still unsure? Check out some of our customers reviews</h3>
-        <p id="reviewLoop" class="fade-loop"></p>
-      </aside>
-      <section class="product-section">
-        <h2 class="section-title">Our Products</h2>
-        <div class="container product-grid" id="container"></div>
-        <div id="productContainer" class="product-grid"></div>
-        <div id="pagination-controls">
-          <button id="prevBtn">Previous</button>
-          <span id="page-number"></span>
-          <button id="nextBtn">Next</button>
-        </div>
-      </section>
-      <aside class="product-layout__sidebar product-layout__sidebar--right">
-        <img src="..//assets/img/baris-selcen-NcKZUp4FXaQ-unsplash.jpg" alt="" />
-      </aside>
-      <div class="page-wrapper">
+    <div class="page-wrapper">
         <div id="cart" class="hidden">
           <h2>Your Cart</h2>
           <div id="cart-items"></div>
