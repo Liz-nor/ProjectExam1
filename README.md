@@ -9,11 +9,11 @@ Project Screenshot
 🛠️ Built With
 List the main tools and technologies used in this project:
 
-Static Badge
+HTML
 
-Static Badge
+CSS
 
-Static Badge
+JavaScript
 
 
 📦 Installation
