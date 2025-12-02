@@ -13,7 +13,7 @@ function initializeSlider() {
     intervalId = setInterval(nextSlide, 5000); // --- Change slide every 5 seconds
   }
 }
-//
+
 function getActiveProductId() {
   const img = slides[slideIndex];
   return img.dataset.id;
@@ -40,10 +40,13 @@ function prevSlide() {
   clearInterval(intervalId); // --- Clear the existing interval
   slideIndex--;
   showSlide(slideIndex);
+  intervalId = setInterval(nextSlide, 5000);
 }
 function nextSlide() {
+  clearInterval(intervalId);
   slideIndex++;
   showSlide(slideIndex);
+  intervalId = setInterval(nextSlide, 5000);
 }
 
 const carousel = document.getElementById("carousel");
@@ -63,10 +66,9 @@ carousel.addEventListener("mouseenter", () => {
 });
 
 carousel.addEventListener("mouseleave", () => {
+  clearInterval(intervalId);
   intervalId = setInterval(nextSlide, 5000);
 });
 
 document.querySelector(".next").addEventListener("click", nextSlide);
 document.querySelector(".prev").addEventListener("click", prevSlide);
-
-showSlide(slideIndex);

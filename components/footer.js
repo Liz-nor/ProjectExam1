@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
         <li><a href="">Shipping</a></li>
         <li class="auth-logged-in"><a href="../account/login.html">Login</a></li>
         <li class="auth-logged-in"><a href="../account/register.html">Register</a></li>
-        <li><a href="">Reviews</a></li>
     </ul>
     </div>
     <div class="footer-section">
@@ -27,17 +26,17 @@ document.addEventListener("DOMContentLoaded", () => {
     <img
         class="partner-icons"
         src="../assets/facebook-svgrepo-com.svg"
-        alt=""
+        alt="Facebook logo"
     />
     <img
         class="partner-icons"
         src="../assets/tiktok-logo-logo-svgrepo-com.svg"
-        alt=""
+        alt="Tiktok logo"
     />
     <img
         class="partner-icons"
         src="../assets/instagram-1-svgrepo-com.svg"
-        alt=""
+        alt="Instagram logo"
     />
     </div>
     <div class="footer-section">
@@ -45,15 +44,15 @@ document.addEventListener("DOMContentLoaded", () => {
     <img
         class="partner-icons"
         src="../assets/mastercard-old-svgrepo-com.svg"
-        alt=""
+        alt="Mastercard logo"
     />
     <img
         class="partner-icons"
         src="../assets/klarna-logo-svgrepo-com.svg"
-        alt=""
+        alt="Klarna logo"
     />
-    <img class="partner-icons" src="../assets/visa-svgrepo-com.svg" alt="" />
-    <img class="partner-icons" src="../assets/Posten_idfMm1ADA9_0.png" alt="" />
+    <img class="partner-icons" src="../assets/visa-svgrepo-com.svg" alt="Visa logo" />
+    <img class="partner-icons" src="../assets/Posten_idfMm1ADA9_0.png" alt="Norwegian post office logo" />
     </div>
 </footer>`;
 

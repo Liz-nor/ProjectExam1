@@ -140,6 +140,7 @@ async function fetchAndCreateProducts() {
     const description = document.createElement("p");
     const rating = document.createElement("p");
     const reviews = document.createElement("p");
+    const cartBtn = document.createElement("a");
     const backButton = document.createElement("a");
 
     // --- Classes ---
@@ -151,8 +152,10 @@ async function fetchAndCreateProducts() {
     rating.className = "ratings";
     reviews.className = "reviews";
     description.className = "product-description";
+    cartBtn.className = "goToCart";
+    cartBtn.textContent = "Go To Cart";
+    cartBtn.href = "../cart.html";
     backButton.className = "back-button";
-
     backButton.textContent = "Back to products";
     backButton.href = "../index.html";
 
@@ -237,6 +240,7 @@ async function fetchAndCreateProducts() {
       });
       productDiv.appendChild(reviewContainer);
     }
+
     // --- Add to Cart
     const addToCartBtn = document.createElement("button");
     addToCartBtn.className = "addToCartBtn";
@@ -257,7 +261,7 @@ async function fetchAndCreateProducts() {
       loginPromt.className = "addToCartBtn";
       loginPromt.textContent = "Log in to purchase";
       loginPromt.addEventListener("click", () => {
-        window.location.href = "/account/login.html";
+        window.location.href = "../account/login.html";
       });
       productDiv.appendChild(loginPromt);
     }
@@ -271,7 +275,7 @@ async function fetchAndCreateProducts() {
     productDiv.appendChild(description);
     productDiv.appendChild(rating);
     productDiv.appendChild(reviews);
-
+    productDiv.appendChild(cartBtn);
     productDiv.appendChild(backButton);
     shareButton.appendChild(tooltip);
 

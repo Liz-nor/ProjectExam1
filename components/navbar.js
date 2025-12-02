@@ -14,9 +14,9 @@ function updateNavAuthState() {
 
   if (isValidUser) {
     loggedOutEls.forEach((el) => (el.style.display = "none"));
-    loggedInEls.forEach((el) => (el.style.display = "block"));
+    loggedInEls.forEach((el) => (el.style.display = ""));
   } else {
-    loggedOutEls.forEach((el) => (el.style.display = "block"));
+    loggedOutEls.forEach((el) => (el.style.display = ""));
     loggedInEls.forEach((el) => (el.style.display = "none"));
   }
 }

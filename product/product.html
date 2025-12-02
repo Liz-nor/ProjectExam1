@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/pages/navbar.css" />
     <link rel="stylesheet" href="../css/pages/cart.css" />
-    <link rel="stylesheet" href="../css/pages/footer.css">
+    <link rel="stylesheet" href="../css/pages/footer.css" />
+    <link rel="stylesheet" href="../css/media.css" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -34,11 +35,15 @@
     <script type="module" src="product.js" defer></script>
     <script type="module" src="../components/navbar.js" defer></script>
     <script type="module" src="../components/cart.js" defer></script>
-    <script type="module" src="../components/footer.js" defer></script> 
+    <script type="module" src="../components/footer.js" defer></script>
     <title>Get a more detailed look on our products</title>
   </head>
   <body>
     <header id="navbar">
+      <input type="checkbox" id="menu-checkbox" />
+      <label for="menu-checkbox" class="hamburger-icon">
+        <i class="fa-solid fa-bars"></i
+      ></label>
       <nav class="nav-container">
         <div class="logo-container">
           <a href="../index.html">
@@ -46,9 +51,8 @@
           </a>
         </div>
         <ul class="nav-links">
-          <li class="auth-logged-in"><a href="../index.html">Home</a></li>
-          <li class="auth-logged-in"><a href="../about.html">About</a></li>
-          <li class="auth-logged-in"><a href="../contact.html">Contact Us</a></li>
+          <li class="auth-logged-in"><a href="about.html">About</a></li>
+          <li class="auth-logged-in"><a href="contact.html">Contact Us</a></li>
           <li class="auth-logged-out">
             <a href="../account/login.html">Login</a>
           </li>
@@ -70,24 +74,15 @@
             class="shopping-cart"
             alt="shopping cart"
           />
-        <span>0</span>
-          </div>
-          <label for="menu-checkbox" class="hamburger-icon">
-            <i class="fa-solid fa-bars"></i>
-          </label>
+          <span>0</span>
         </div>
+        <div></div>
       </nav>
     </header>
     <main class="product-layout">
-      <aside class="product-layout__sidebar product-layout__sidebar--left">
-        <h2></h2>
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-        <h3></h3>
-      </aside>
+      <aside
+        class="product-layout__sidebar product-layout__sidebar--left"
+      ></aside>
       <div id="container" class="product-container">
         <select id="sizeSelect">
           <option value="">Please pick size</option>
@@ -99,14 +94,13 @@
           <option>40</option>
         </select>
       </div>
-      <aside class="product-layout__sidebar product-layout__sidebar--right">
-      </aside>
       <div id="cart" class="hidden">
         <h2>Your Cart</h2>
         <div id="cart-items"></div>
         <p id="cart-total"></p>
         <button id="clear-cart">Clear Cart</button>
         <button id="close-cart">Close</button>
+        <button id="see-cart">Go to Cart</button>
         <button id="go-to-checkout">Check-out</button>
       </div>
     </main>

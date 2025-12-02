@@ -48,7 +48,10 @@
   </head>
   <body>
     <header id="navbar">
-      <input type="checkbox" id="menu-checkbox">
+      <input type="checkbox" id="menu-checkbox" />
+      <label for="menu-checkbox" class="hamburger-icon">
+        <i class="fa-solid fa-bars"></i
+      ></label>
       <nav class="nav-container">
         <div class="logo-container">
           <a href="index.html">
@@ -79,12 +82,9 @@
             class="shopping-cart"
             alt="shopping cart"
           />
-        <span>0</span>
-          </div>
-          <label for="menu-checkbox" class="hamburger-icon">
-            <i class="fa-solid fa-bars"></i>
-          </label>
+          <span>0</span>
         </div>
+        <div></div>
       </nav>
     </header>
     <div class="carousel-container">
@@ -148,7 +148,10 @@
         </div>
       </section>
       <aside class="product-layout__sidebar product-layout__sidebar--right">
-        <img src="..//assets/img/baris-selcen-NcKZUp4FXaQ-unsplash.jpg" alt="" />
+        <img
+          src="..//assets/img/baris-selcen-NcKZUp4FXaQ-unsplash.jpg"
+          alt=""
+        />
       </aside>
       <div class="page-wrapper">
         <div id="cart" class="hidden">
@@ -157,6 +160,7 @@
           <p id="cart-total"></p>
           <button id="clear-cart">Clear Cart</button>
           <button id="close-cart">Close</button>
+          <button id="see-cart">Go to Cart</button>
           <button id="go-to-checkout">Check-out</button>
         </div>
       </div>

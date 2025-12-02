@@ -1,32 +1,9 @@
 @media (max-width: 830px) {
   #navbar {
     width: 100%;
-    justify-content: space-between;
-  }
-
-  .nav-container {
     justify-content: space-evenly;
   }
 
-  .hamburger-icon {
-    display: block;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background: #ff6246;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0.75rem 1.5rem 1rem;
-    gap: 0.75rem;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.25s ease, opacity 0.25s ease;
-  }
   .product-layout {
     display: flex;
     flex-direction: column;
@@ -38,27 +15,27 @@
     display: none;
   }
   /* Hamburger menu */
-  .hamburger-menu {
+  .hamburger-icon {
     display: block;
+    padding: 1rem;
   }
   .nav-links {
     position: fixed;
-    top: 0;
-    right: -100%;
+    top: 3rem;
+    left: -100%;
     height: 100vh;
-    width: 250px;
-    background-color: #fff;
+    width: 15rem;
+    background-color: var(--secondary-color-dark);
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 60px;
+    padding-top: 1rem;
     box-shadow: -2px 0 5px rgb(0, 0, 0, 0.1);
-    transition: right 0.3s ease;
+    transition: left 0.3s ease;
     z-index: 1000;
   }
   .nav-links li {
     width: 100%;
     text-align: left;
-    padding: 15px 20px;
   }
 
   .nav-links a {
@@ -66,22 +43,24 @@
     width: 100%;
   }
 
-  #menu-checkbox:checked ~ nav .nav-links {
-    right: 0;
+  #menu-checkbox:checked ~ .nav-container .nav-links {
+    left: 0;
   }
-  #menu-checkbox:checked ~ nav::before {
+  #menu-checkbox:checked ~ .nav-container::before {
     content: "";
     position: fixed;
     top: 0;
-    right: 0;
-    width: 400px;
-    height: 300px;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: rgb(0, 0, 0, 0.5);
     z-index: 999;
   }
   /* Cart */
   .cart-icon {
+    position: absolute;
     margin-left: 0.5rem;
+    right: 1rem;
   }
   .info-section p {
     display: none;
@@ -95,5 +74,28 @@
   }
   #footer-section.open #footer-links {
     display: block;
+  }
+  /*Carousel*/
+  img.displaySlide {
+    display: block;
+    width: 20rem;
+    object-fit: cover;
+  }
+  /*Product page*/
+  .product-details {
+    display: flex;
+    order: 1;
+  }
+  .product-layout__sidebar--left {
+    justify-items: center;
+    order: 2;
+  }
+  .similar-product-list {
+    width: 20rem;
+    justify-items: center;
+  }
+  /*Checkout page*/
+  #checkout-container {
+    max-width: 400px;
   }
 }

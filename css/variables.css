@@ -8,13 +8,12 @@
   /* Secondary colors */
   --secondary-color-light-grey: #d5cdc1;
   --secondary-color-dark-grey: #6d6c6b;
-  --secondary-color-brown: #806c64;
+  --secondary-color-beige: #f7d7b3;
   --secondary-color-dark: #524a46;
 
   /* Headings */
   --font-size-h1: 3rem;
   --font-size-h2: 2rem;
-  --font-size-h3: ;
 
   /* Buttons */
   --rounded-corners: 5px;

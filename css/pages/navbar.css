@@ -2,7 +2,7 @@
   background-color: var(--primary-color-dark-orange);
   width: 100%;
   display: flex;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px var(--secondary-color-dark);
   position: sticky;
   z-index: 100;
   top: 0;
@@ -84,6 +84,7 @@
   z-index: 1001;
 }
 .cart-icon {
+  display: flex;
   cursor: pointer;
 }
 

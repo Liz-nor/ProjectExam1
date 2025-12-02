@@ -149,6 +149,7 @@ export function initCartUI() {
   const cartIcon = document.querySelector(".cart-icon");
   const clearBtn = document.getElementById("clear-cart");
   const closeBtn = document.getElementById("close-cart");
+  const cartBtn = document.getElementById("see-cart");
   const checkoutBtn = document.getElementById("go-to-checkout");
 
   if (cartIcon) {
@@ -177,6 +178,12 @@ export function initCartUI() {
       const btn = e.target.closest("[data-remove-id]");
       if (!btn) return;
       removeFromCart(btn.getAttribute("data-remove-id"));
+    });
+  }
+
+  if (cartBtn) {
+    cartBtn.addEventListener("click", () => {
+      window.location.href = "../cart.html";
     });
   }
 

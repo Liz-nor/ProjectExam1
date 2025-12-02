@@ -5,11 +5,8 @@
   flex-direction: row;
   justify-content: space-around;
   background-color: var(--primary-color-dark-orange);
-  box-shadow: 0 10px rgba(0, 0, 0, 0.15);
-  border: 4px solid black;
-}
-.footer p {
-  font-size: 1.1rem;
+  border-top: 1px solid var(--secondary-color-dark);
+  padding-bottom: 10px;
 }
 .footer img {
   height: 50px;
@@ -19,16 +16,13 @@
   margin: 5px;
 }
 .footer-section {
-  /* display: flex;
-  flex-direction: row; */
-  width: 200px;
+  width: 300px;
 }
 .footer-section li {
   list-style: none;
   padding: 5px 0 5px 0;
 }
 .footer-section ul {
-  margin: 0;
   padding: 0;
 }
 .footer-section a {

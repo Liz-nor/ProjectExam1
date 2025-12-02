@@ -1,9 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 @import url("./variables.css");
 @import url("./css/media.css");
 @import url("./css/pages/footer.css");
-* {
-  font-family: "GFS Didot", Verdana, Geneva, Tahoma, sans-serif;
+h1,
+h2,
+h3 {
+  font-family: "GFS Didot", "Lato", Verdana, Geneva, Tahoma, sans-serif;
+}
+
+p,
+li,
+ul,
+a {
+  font-family: "Lato", Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
@@ -23,7 +33,7 @@ body {
 }
 
 .product-layout__sidebar {
-  background: #f7d7b3;
+  background: var(--secondary-color-beige);
   border-radius: 16px;
   padding: 1rem;
   height: 500px;
@@ -37,6 +47,7 @@ body {
   padding: 0;
 }
 .product-section__title {
+  font-family: "GFS Didot", Verdana, Geneva, Tahoma, sans-serif;
   font-size: 2rem;
   margin-bottom: 1.5rem;
   text-align: center;
