@@ -67,7 +67,7 @@ async function fetchSimilarProducts(currentProduct) {
   }
 }
 function renderSimilarProducts(products) {
-  const sidebar = document.querySelector(".product-layout__sidebar--left");
+  const sidebar = document.querySelector(".product-layout__sidebar--right");
   if (!sidebar) return;
   sidebar.innerHTML = `<h2>Similar Products</h2>`;
   sidebar.style.height = "auto";

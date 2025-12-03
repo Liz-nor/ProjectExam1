@@ -3,31 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/styles.css" />
-    <link rel="stylesheet" href="../css/pages/navbar.css" />
-    <link rel="stylesheet" href="../css/media.css" />
-    <link rel="stylesheet" href="../css/pages/cart.css" />
-    <link rel="stylesheet" href="../css/pages/footer.css" />
-    <link rel="import" href="../account/register.html" />
-    <link rel="import" href="../account/login.html" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/pages/navbar.css" />
+    <link rel="stylesheet" href="css/media.css" />
+    <link rel="stylesheet" href="css/pages/cart.css" />
+    <link rel="stylesheet" href="css/pages/footer.css" />
+    <link rel="import" href="./account/register.html" />
+    <link rel="import" href="./account/login.html" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="../assets/favicon/apple-touch-icon.png"
+      href="./assets/favicon/apple-touch-icon.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="../assets/favicon/favicon-32x32.png"
+      href="./assets/favicon/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="../assets/favicon/favicon-16x16.png"
+      href="./assets/favicon/favicon-16x16.png"
     />
-    <link rel="manifest" href="../assets/favicon/site.webmanifest" />
+    <link rel="manifest" href="./assets/favicon/site.webmanifest" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -37,10 +37,10 @@
       href="https://fontawesome.com/icons/user?f=classic&s=solid"
     />
     <script type="module" src="index.js" defer></script>
-    <script type="module" src="../carousel.js" defer></script>
-    <script type="module" src="../components/navbar.js" defer></script>
-    <script type="module" src="../components/cart.js" defer></script>
-    <script type="module" src="../components/footer.js" defer></script>
+    <script type="module" src="./carousel.js" defer></script>
+    <script type="module" src="./components/navbar.js" defer></script>
+    <script type="module" src="./components/cart.js" defer></script>
+    <script type="module" src="./components/footer.js" defer></script>
     <title>
       Browse our exclusive products and fill your everyday life with a little
       more glamour
@@ -55,20 +55,20 @@
       <nav class="nav-container">
         <div class="logo-container">
           <a href="index.html">
-            <img src="../assets/1.png" class="logo" alt="Lènoir Lane logo" />
+            <img src="./assets/1.png" class="logo" alt="Lènoir Lane logo" />
           </a>
         </div>
         <ul class="nav-links">
           <li class="auth-logged-in"><a href="about.html">About</a></li>
           <li class="auth-logged-in"><a href="contact.html">Contact Us</a></li>
           <li class="auth-logged-out">
-            <a href="../account/login.html">Login</a>
+            <a href="./account/login.html">Login</a>
           </li>
           <li class="auth-logged-out">
-            <a href="../account/register.html">Sign Up</a>
+            <a href="./account/register.html">Sign Up</a>
           </li>
           <li class="auth-logged-in">
-            <a href="../pages/my-account.html">
+            <a href="./pages/my-account.html">
               <i class="fa-solid fa-user"></i>
             </a>
           </li>
@@ -78,7 +78,7 @@
         </ul>
         <div class="cart-icon auth-logged-in">
           <img
-            src="../assets/cart-shopping-svgrepo-com.svg"
+            src="./assets/cart-shopping-svgrepo-com.svg"
             class="shopping-cart"
             alt="shopping cart"
           />
@@ -92,7 +92,7 @@
         <div class="slides">
           <div class="imgHandbag">
             <img
-              src="../assets/img/handbag_1.jpg"
+              src="./assets/img/handbag_1.jpg"
               alt=""
               id="imgHandbag"
               data-id="3b43b2e4-62b0-4c02-9166-dffa46a0388c"
@@ -100,7 +100,7 @@
           </div>
           <div class="imgHeadphones">
             <img
-              src="../assets/img/headphones_2.jpg"
+              src="./assets/img/headphones_2.jpg"
               alt=""
               id="imgHeadphones"
               data-id="159fdd2f-2b12-46de-9654-d9139525ba87"
@@ -108,7 +108,7 @@
           </div>
           <div class="imgPerfume">
             <img
-              src="../assets/img/3.png"
+              src="./assets/img/3.png"
               alt=""
               id="imgPerfume"
               data-id="109566af-c5c2-4f87-86cb-76f36fb8d378"
@@ -128,14 +128,12 @@
     </div>
     <main class="product-layout">
       <aside class="product-layout__sidebar product-layout__sidebar--left">
-        <h2>Why buy from us</h2>
-        <ul>
-          <li>🚛Free Shipping</li>
-          <li>🔒Safe Payment</li>
-          <li>⭐Check out the reviews</li>
-        </ul>
-        <h3>Still unsure? Check out some of our customers reviews</h3>
-        <p id="reviewLoop" class="fade-loop"></p>
+        <h2>Lènoir Lane</h2>
+        <p>
+          Lènoir Lane is a newly established luxury brand dedicated to crafting
+          high-end products that blend timeless design with modern
+          sophistication.
+        </p>
       </aside>
       <section class="product-section">
         <h2 class="section-title">Our Products</h2>
@@ -148,10 +146,14 @@
         </div>
       </section>
       <aside class="product-layout__sidebar product-layout__sidebar--right">
-        <img
-          src="..//assets/img/baris-selcen-NcKZUp4FXaQ-unsplash.jpg"
-          alt=""
-        />
+        <h2>Why buy from us</h2>
+        <ul>
+          <li>🚛Free Shipping</li>
+          <li>🔒Safe Payment</li>
+          <li>⭐Check out the reviews</li>
+        </ul>
+        <h3>Still unsure? Check out some of our customers reviews</h3>
+        <p id="reviewLoop" class="fade-loop"></p>
       </aside>
       <div class="page-wrapper">
         <div id="cart" class="hidden">

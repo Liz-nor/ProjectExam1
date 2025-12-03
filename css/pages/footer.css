@@ -1,5 +1,3 @@
-@import url(../css/media.css);
-@import url(../css/variables.css);
 .footer {
   display: flex;
   flex-direction: row;

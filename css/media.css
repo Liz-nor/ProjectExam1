@@ -9,11 +9,13 @@
     flex-direction: column;
   }
   .product-layout__sidebar--left {
-    height: 300px;
+    width: 100%;
+    height: auto;
   }
-  .product-layout__sidebar--right {
-    display: none;
-  }
+  /* .product-layout__sidebar--right {
+    width: 250px;
+    align-content: center;
+  } */
   /* Hamburger menu */
   .hamburger-icon {
     display: block;
@@ -62,18 +64,33 @@
     margin-left: 0.5rem;
     right: 1rem;
   }
-  .info-section p {
-    display: none;
-  }
+  /* Footer */
   #footer {
     width: 100%;
     flex-direction: row;
   }
+  .footer-section {
+    width: 100px;
+  }
+  .footer-section h2 {
+    font-size: medium;
+  }
+  .info-section p,
+  .about-us-section a {
+    font-size: small;
+    padding: 5px;
+  }
+
   #footer-links {
     display: none;
   }
   #footer-section.open #footer-links {
     display: block;
+  }
+  .partner-icons {
+    height: 30px !important;
+    margin: 2px !important;
+    padding: 2px !important;
   }
   /*Carousel*/
   img.displaySlide {
@@ -87,12 +104,19 @@
     order: 1;
   }
   .product-layout__sidebar--left {
-    justify-items: center;
     order: 2;
   }
+
   .similar-product-list {
     width: 20rem;
     justify-items: center;
+  }
+
+  /* Signup */
+  .signup-wrapper {
+    width: 250px;
+    height: 100vh;
+    padding-bottom: 20px;
   }
   /*Checkout page*/
   #checkout-container {
