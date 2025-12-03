@@ -36,14 +36,14 @@
       rel="stylesheet"
       href="https://fontawesome.com/icons/user?f=classic&s=solid"
     />
-    <script type="module" src="index.js" defer></script>
+    <script type="module" src="/index.js" defer></script>
     <script type="module" src="./carousel.js" defer></script>
     <script type="module" src="./components/navbar.js" defer></script>
-    <script type="module" src="./components/cart.js" defer></script>
+    <script type="module" src="./components/cart.js"></script>
+    <script type="module" src="./components/cart-page.js" defer></script>
     <script type="module" src="./components/footer.js" defer></script>
     <title>
-      Browse our exclusive products and fill your everyday life with a little
-      more glamour
+      Shopping Cart
     </title>
   </head>
   <body>
@@ -65,10 +65,10 @@
             <a href="../account/login.html">Login</a>
           </li>
           <li class="auth-logged-out">
-            <a href="../account/register.html">Sign Up</a>
+            <a href="./account/register.html">Sign Up</a>
           </li>
           <li class="auth-logged-in">
-            <a href="../pages/my-account.html">
+            <a href="./pages/my-account.html">
               <i class="fa-solid fa-user"></i>
             </a>
           </li>
@@ -76,28 +76,27 @@
             <button id="logout-btn" class="logout-btn">Logout</button>
           </li>
         </ul>
-        <div class="cart-icon auth-logged-in">
-          <img
-            src="../assets/cart-shopping-svgrepo-com.svg"
-            class="shopping-cart"
-            alt="shopping cart"
-          />
-        <span>0</span>
-          </div>
-          
-        </div>
       </nav>
     </header>
-    <main>
-      <div class="cart-page-container">
-        <h1>Shopping Cart</h1>
-        <div id="cart-items"></div>
-        <div id="cart-total"></div>
-        <div class="cart-actions">
-          <button id="clear-cart">Clear Cart</button>
-          <button id="go-to-checkout">Proceed to Checkout</button>
-        </div>
+    <div class="container">
+        <h1 class="header">Your Cart</h1>
+        <p class="cart-comment">Review your items and proceed to checkout</p>
+    <div class="cart-wrapper">
+      <div class="cart-items" id="cartItems"></div>
+    </div>
+    <div class="summary">
+      <h2 class="summary-title">Order Summary</h2>
+      <div class="summary-row total">
+        <span>Total</span>
+        <span class="summary-value" id="total">$0.00</span>
       </div>
+    </div>
+    <button class="checkout-btn" id="checkoutBtn"> Proceed to Checkout</button>
+    <div class="continue-shopping">
+      <a href="/index.html" id="continueShoppingBtn">&#8592Continue Shopping</a>
+    </div>
+    </div>
+    <main>
     </main>
   </body>
   <div id="footer"></div>

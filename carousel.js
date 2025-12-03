@@ -1,7 +1,6 @@
 // --- Image Carousel
 
 const slides = document.querySelectorAll(".slides img"); // --- Select all images within the slides container
-const inspectBtn = document.getElementById("inspectGlobalBtn");
 let slideIndex = 0; // --- Initialize the starting slide index
 let intervalId = null; // --- Variable to hold the interval ID for automatic sliding
 
@@ -18,11 +17,16 @@ function getActiveProductId() {
   const img = slides[slideIndex];
   return img.dataset.id;
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const inspectBtn = document.querySelector(".inspectBtn");
+  if (!inspectBtn) return;
 
-inspectBtn.addEventListener("click", () => {
-  const productId = getActiveProductId();
-  const productUrl = `/product/product.html?id=${productId}`;
-  window.location.href = productUrl;
+  inspectBtn.addEventListener("click", () => {
+    const productId = getActiveProductId();
+    window.location.href = `./product/product.html?id=${productId}`;
+    // const productUrl = `/product/product.html?id=${productId}`;
+    // window.location.href = productUrl;
+  });
 });
 
 function showSlide(index) {
@@ -61,14 +65,23 @@ fetch("https://v2.api.noroff.dev/online-shop")
     });
   });
 
-carousel.addEventListener("mouseenter", () => {
-  clearInterval(intervalId);
-});
+if (carousel) {
+  carousel.addEventListener("mouseenter", () => {
+    clearInterval(intervalId);
+  });
 
-carousel.addEventListener("mouseleave", () => {
-  clearInterval(intervalId);
-  intervalId = setInterval(nextSlide, 5000);
-});
+  carousel.addEventListener("mouseleave", () => {
+    clearInterval(intervalId);
+    intervalId = setInterval(nextSlide, 5000);
+  });
+  const nextBtn = document.querySelector(".next");
+  const prevBtn = document.querySelector(".prev");
 
-document.querySelector(".next").addEventListener("click", nextSlide);
-document.querySelector(".prev").addEventListener("click", prevSlide);
+  if (nextBtn) {
+    nextBtn.addEventListener("click", nextSlide);
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", prevSlide);
+  }
+}
