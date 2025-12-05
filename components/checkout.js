@@ -1,61 +1,79 @@
-const CART_KEY = "cart";
-const cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
-const container = document.querySelector("#checkout-container");
+const tColorA = document.getElementById("tColorA");
+const tColorB = document.getElementById("tColorB");
+const tColorC = document.getElementById("tColorC");
+const iconA = document.querySelector(".fa-credit-card");
+const iconB = document.querySelector(".fa-building-columns");
+const iconC = document.querySelector(".fa-wallet");
+const cDetails = document.querySelector(".c-details");
 
-if (cart.length === 0) {
-  container.textContent = "Your cart is empty.";
-} else {
-  let total = 0;
-
-  const itemsWrapper = document.createElement("div");
-  itemsWrapper.className = "checkout-items";
-
-  cart.forEach((item) => {
-    total += item.price * item.qty;
-
-    const div = document.createElement("div");
-    div.className = "checkout-item";
-    div.innerHTML = `
-      <h3>${item.title}</h3>
-      <p>Qty: ${item.qty}</p>
-      <p>Subtotal: $${(item.price * item.qty).toFixed(2)}</p>
-    `;
-
-    itemsWrapper.appendChild(div);
-  });
-
-  container.appendChild(itemsWrapper);
-
-  const totalDiv = document.createElement("p");
-  totalDiv.textContent = `Total: $${total.toFixed(2)}`;
-  container.appendChild(totalDiv);
+function doFun() {
+  tColorA.style.color = "greenyellow";
+  tColorB.style.color = "gray";
+  tColorC.style.color = "gray";
+  iconA.style.color = "greenyellow";
+  iconB.style.color = "gray";
+  iconC.style.color = "gray";
+  cDetails.style.display = "block";
+}
+function doFunA() {
+  tColorA.style.color = "gray";
+  tColorB.style.color = "greenyellow";
+  tColorC.style.color = "gray";
+  iconA.style.color = "gray";
+  iconB.style.color = "greenyellow";
+  iconC.style.color = "gray";
+  cDetails.style.display = "none";
+}
+function doFunB() {
+  tColorA.style.color = "gray";
+  tColorB.style.color = "gray";
+  tColorC.style.color = "greenyellow";
+  iconA.style.color = "gray";
+  iconB.style.color = "gray";
+  iconC.style.color = "greenyellow";
+  cDetails.style.display = "none";
 }
 
-const placeOrderBtn = document.getElementById("check-out");
-const modal = document.getElementById("orderModal");
-const closeModalBtn = document.getElementById("closeModal");
+// Add click event listeners
+tColorA.addEventListener("click", doFun);
+tColorB.addEventListener("click", doFunA);
+tColorC.addEventListener("click", doFunB);
+const cNumber = document.getElementById("number");
+cNumber.addEventListener("keyup", function (e) {
+  let num = cNumber.value.replace(/\s/g, ""); // Remove non-digit characters
+  let newValue = num.match(/.{1,4}/g).join(" ") || num;
+  cNumber.value = newValue;
 
-if (placeOrderBtn) {
-  placeOrderBtn.addEventListener("click", async (e) => {
-    e.preventDefault();
-    placeOrderBtn.disabled = true;
+  if (num.length < 16) {
+    cNumber.style.border = "2px solid red";
+  } else {
+    cNumber.style.border = "1px solid #aaa";
+  }
+});
 
-    const originalText = placeOrderBtn.textContent;
+const eDate = document.getElementById("eDate");
+eDate.addEventListener("input", function (e) {
+  let value = e.target.value.replace(/\D/g, ""); // Remove non-digit characters
 
-    placeOrderBtn.innerHTML = `<span class="button-spinner"></span> Processing...`;
+  if (value.length > 2) {
+    value = value.slice(0, 2) + "/" + value.slice(2, 4);
+  }
+  e.target.value = value;
 
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    localStorage.removeItem("cart");
-    placeOrderBtn.textContent = originalText;
-    placeOrderBtn.disabled = false;
+  if (e.target.value.length < 5) {
+    eDate.style.border = "2px solid red";
+  } else {
+    eDate.style.border = "1px solid #aaa";
+  }
+});
 
-    modal.classList.remove("hidden");
-  });
-}
-
-if (closeModalBtn) {
-  closeModalBtn.addEventListener("click", () => {
-    modal.classList.add("hidden");
-    window.location.href = "index.html";
-  });
-}
+let cvv = document.getElementById("cvv");
+cvv.addEventListener("input", function (e) {
+  let elen = cvv.value;
+  let cvvBox = document.getElementById("cvvBox");
+  if (elen.lenght > 3) {
+    cvvBox.style.border = "2px solid red";
+  } else {
+    cvvBox.style.border = "1px solid #aaa";
+  }
+});

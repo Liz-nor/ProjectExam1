@@ -8,16 +8,7 @@ import "../components/navbar.js"; // --- Importing the navbar component to be us
 
 const API_URL = "https://v2.api.noroff.dev/online-shop"; // --- Base API URL
 const container = document.querySelector("#container"); // --- Container to hold the product details
-const sizeSelect = document.getElementById("sizeSelect");
 
-// --- If shoes, makes you choose a size
-function areShoes(product) {
-  if (!product.tags) return false;
-
-  const shoeTags = ["shoes"];
-
-  return product.tags.some((tag) => shoeTags.includes(tag.toLowerCase()));
-}
 async function handleShareClick(shareUrl, product) {
   if (navigator.share) {
     try {
@@ -105,7 +96,7 @@ async function fetchAndCreateProducts() {
   // --- Main function to fetch and display product details
   const params = new URLSearchParams(window.location.search); // --- Get query parameters from the URL
   const id = params.get("id"); // --- Extract the product ID
-  console.log(id);
+
   if (!id) {
     container.textContent = "No product ID provided in the URL.";
     return;
@@ -121,14 +112,6 @@ async function fetchAndCreateProducts() {
       // --- Handle case where product is not found ---
       container.textContent = "Could not load product.";
       return;
-    }
-
-    console.log("Tags", product.tags);
-
-    if (areShoes(product)) {
-      sizeSelect.style.display = "block";
-    } else {
-      sizeSelect.style.display = "none";
     }
 
     // --- Elements ---

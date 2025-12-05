@@ -18,9 +18,8 @@ function renderCart() {
       (item) => `
         <div class="cart-item">
             <img class="item-image" 
-                src="${item.image || "https://via.placeholder.com/100"}" 
-                alt="${item.title}"
-                onerror="this.src='https://via.placeholder.com/100?text=No+Image'">
+                src="${item.image}" 
+                alt="${item.title}" />
             <div class="item-details">
                 <div class="item-name">
                 <h3>${item.title}</h3></div>

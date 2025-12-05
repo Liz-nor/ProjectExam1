@@ -169,7 +169,8 @@
   font-weight: 700;
 }
 
-.product-layout__sidebar--left h2 {
+.product-layout__sidebar h2 {
+  text-align: center;
   margin-bottom: 15px;
   padding: 10px;
   border-bottom: 2px solid var(--primary-color-beige);

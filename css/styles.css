@@ -14,7 +14,8 @@ p,
 li,
 ul,
 a,
-span {
+span,
+button {
   font-family: "Lato", Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -30,7 +31,7 @@ body {
   margin: 2rem auto;
   padding: 0 1.5rem;
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr) 220px;
+  grid-template-columns: 1fr 3fr 1fr;
   gap: 2rem;
 }
 
@@ -44,8 +45,8 @@ body {
   background: var(--primary-color-dark-beige);
 }
 .product-layout__sidebar--left h2 {
+  text-align: center;
   margin-bottom: 15px;
-  padding: 10px;
   border-bottom: 2px solid var(--primary-color-beige);
 }
 .product-layout__sidebar img {

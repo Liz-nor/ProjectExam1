@@ -33,23 +33,22 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://fontawesome.com/icons/user?f=classic&s=solid"
-    />
-    <script type="module" src="index.js" defer></script>
+    <script type="module" src="../index.js" defer></script>
     <script type="module" src="../carousel.js" defer></script>
     <script type="module" src="../components/navbar.js" defer></script>
     <script type="module" src="../components/cart.js" defer></script>
+    <script type="module" src="../components/checkout.js" defer></script>
     <script type="module" src="../components/footer.js" defer></script>
     <title>
-      Browse our exclusive products and fill your everyday life with a little
-      more glamour
+      Checkout - Complete Your Purchase at Lènoir Lane
     </title>
   </head>
   <body>
     <header id="navbar">
       <input type="checkbox" id="menu-checkbox">
+      <label for="menu-checkbox" class="hamburger-icon">
+            <i class="fa-solid fa-bars"></i>
+          </label>
       <nav class="nav-container">
         <div class="logo-container">
           <a href="../index.html">
@@ -74,53 +73,65 @@
             <button id="logout-btn" class="logout-btn">Logout</button>
           </li>
         </ul>
-        <!-- <div class="cart-icon auth-logged-in">
-          <img
-            src="../assets/cart-shopping-svgrepo-com.svg"
-            class="shopping-cart"
-            alt="shopping cart"
-          />
-        <span>0</span>
-          </div> -->
-          <label for="menu-checkbox" class="hamburger-icon">
-            <i class="fa-solid fa-bars"></i>
-          </label>
         </div>
       </nav>
     </header>
     <main>
         <h1 class="checkout-header">Checkout</h1>
-      <div id="productContainer"></div>
-      <div id="checkout-container">
-        <form method="get" class="checkoutForm">
-        <div class="personalInfo">
-          <h2>Billing Address</h2>
-            <label for="name">Full Name</label>
-          <input type="text" id="name" placeholder="Enter Full Name">
-            <label for="email">Email</label>
-          <input type="email" id="email" placeholder="Enter Your Email">
-            <label for="address">Address</label>
-          <input type="text" id="address" placeholder="Enter Your Address">
-            <label for="city">City</label>
-          <input type="text" id="city">
-            <label for="country">Country</label>
-          <input type="text" id="country" placeholder="Enter Your Country">
-            <label for="cardName">Name On Card</label>
-          <input type="text" id="cardName" placeholder="Enter Name On Card">
-          <button id="check-out" type="button">Proceed to Checkout</button>
+      <div id="productContainer">
+        <div class="left">
+          <p>Payment Methods</p>
+          <div class="methods">
+            <div id="tColorA" style="color: var(--secondary-color-dark);"><i class="fa-solid fa-credit-card"></i>Payment by Card</div>
+            <div id="tColorB"><i class="fa-solid fa-building-columns"></i>Payment by Bank Transfer</div>
+            <div id="tColorC"><i class="fa-solid fa-wallet"></i>Payment by Apple/Google</div>
+          </div>
         </div>
-      </form>
+      
+      <div class="center">
+        <img src="../assets/klarna-logo-svgrepo-com.svg" width="60px" height="auto" alt="Klarna logo" title="Credit Card logo">
+        <img src="../assets/mastercard-old-svgrepo-com.svg" width="60px" height="auto" alt="Mastercard logo">
+        <img src="../assets/visa-svgrepo-com.svg" width="60px" height="auto" alt="Visa logo">
+        <div class="card-details">
+          <form action="">
+            <p>Card Number</p>
+            <div class="c-number" id="cNumber">
+              <input type="text" id="number" class="cc-number" placeholder="Card Number" maxlength="19" required>
+              <i class="fa-solid fa-credit-card"></i>
+            </div>
+            <div class="c-details">
+              <div>
+                <p>Expiry Date</p>
+                <input type="text" id="eDate" class="cc-exp" placeholder="MM/YY" maxlength="5" required>
+              </div>
+              <div class="force">
+                <p class="force">CVV</p>
+                <div class="cvv-box" id="cvvBox">
+                  <input type="text" id="cvv" class="cc-cvv" placeholder="CVV" maxlength="4" required>
+                  <i class="fa-solid fa-circle-question" title="3 digits on the back of the card"></i>
+                </div>
+              </div>
+            </div>
+            <div class="email">
+              <p>Email</p>
+              <input type="email" id="email" placeholder="example@mail.com" required> 
+            </div>
+            <button type="submit">PAY NOW</button>
+          </form>
+        </div>
       </div>
-    <!-- <div class="page-wrapper">
-        <div id="cart" class="hidden">
-          <h2>Your Cart</h2>
-          <div id="cart-items"></div>
-          <p id="cart-total"></p>
-          <button id="clear-cart">Clear Cart</button>
-          <button id="close-cart">Close</button>
-          <button id="go-to-checkout">Check-out</button>
+          <div class="right">
+          <p>Order information</p>
+          <hr style="border:1px solid #ccc; margin: 0 15px;">
+          <div class="details">
+          <div style="font-weight: bold; padding: 3px 0;">Order Description</div>
+          <div style="padding: 3px 0;">Test Payment</div>
+          </div>
+          <img src="../assets/klarna-logo-svgrepo-com.svg" width="60px" height="auto" alt="Klarna logo" title="Credit Card logo">
+          <img src="../assets/mastercard-old-svgrepo-com.svg" width="60px" height="auto" alt="Mastercard logo" title="Credit Card logo">
+          <img src="../assets/visa-svgrepo-com.svg" width="60px" height="auto" alt="Visa logo" title="Credit Card logo">
         </div>
-      </div> -->
+      </div>
     </main>
   </body>
   <div id="footer"></div>

@@ -1,6 +1,6 @@
-const ALLOWED_DOMAIN = "@stud.noroff.no"; // --- change to your real email
-const AUTH_FLAG_KEY = "isLoggedIn";
-const AUTH_EMAIL_KEY = "userEmail";
+const ALLOWED_DOMAIN = "@stud.noroff.no"; // --- only allow stud.noroff.no emails
+const AUTH_FLAG_KEY = "isLoggedIn"; // --- key to store login status in localStorage
+const AUTH_EMAIL_KEY = "userEmail"; // --- key to store user email in localStorage
 
 function showModal(message, onClose) {
   const modal = document.getElementById("modal");
