@@ -52,7 +52,7 @@
   display: none !important;
 }
 
-.container {
+.cart-container {
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -64,14 +64,17 @@
 
 h1 {
   font-size: 3rem;
-  font-weight: 700;
   margin-bottom: 0.5rem;
+}
+.cart-comment {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-light);
 }
 
 .cart-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: 2rem;
+  margin: 0 auto;
+  max-width: 900px;
 }
 
 .cart-items {
@@ -86,8 +89,8 @@ h1 {
   grid-template-columns: 100px 1fr auto;
   gap: 1.5rem;
   padding: 1.5rem;
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  border-bottom: 2px solid var(--primary-color-beige);
+  /* border-radius: 12px; */
   margin-bottom: 1rem;
   transition: all 0.3s ease;
 }
@@ -114,13 +117,11 @@ h1 {
 .item-name {
   font-size: 1.4rem;
   font-weight: 600;
-  color: var(--primary);
   margin-bottom: 0.5rem;
 }
 
 .item-price {
   font-weight: 600;
-  color: var(--accent);
   font-size: 1.2rem;
 }
 
@@ -145,8 +146,6 @@ h1 {
   height: 32px;
   border: none;
   background: white;
-  color: var(--primary);
-  border-radius: 6px;
   font-size: 1.2rem;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -157,8 +156,6 @@ h1 {
 }
 
 .quantity-btn:hover {
-  background: var(--accent);
-  color: white;
   transform: scale(1.1);
 }
 
@@ -174,9 +171,7 @@ h1 {
 }
 
 .remove-btn {
-  background: none;
   border: none;
-  color: var(--text-light);
   cursor: pointer;
   font-size: 0.9rem;
   text-decoration: underline;
@@ -184,16 +179,15 @@ h1 {
 }
 
 .remove-btn:hover {
-  color: #c44;
+  color: var(--primary-color-dark-orange);
 }
 
 .summary {
   background: white;
   border-radius: 16px;
+  margin-top: 2rem;
   padding: 2rem;
-  box-shadow: 0 4px 20px var(--shadow);
-  position: sticky;
-  top: 2rem;
+  box-shadow: 0 4px 20px var(--secondary-color-dark);
   height: fit-content;
 }
 
@@ -208,116 +202,52 @@ h1 {
   display: flex;
   justify-content: space-between;
   padding: 0.75rem 0;
-  border-bottom: 1px solid var(--border);
-  color: var(--text-light);
 }
 
 .summary-row.total {
-  border-bottom: none;
   font-size: 1.4rem;
   font-weight: 600;
-  color: var(--primary);
-  margin-top: 1rem;
-  padding-top: 1.5rem;
-  border-top: 2px solid var(--primary);
 }
 
 .summary-value {
   font-weight: 600;
-  color: var(--text);
 }
 
 .checkout-btn {
-  width: 100%;
+  border-radius: var(--rounded-corners);
+  background: var(--button-color);
+  box-shadow: var(--button-shadow);
   padding: 1.25rem;
-  background: var(--primary);
-  color: white;
-  border: none;
-  border-radius: 12px;
+  border: 0.5px solid var(--primary-color-dark-beige);
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
   margin-top: 1.5rem;
   transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.checkout-btn::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
-}
-
-.checkout-btn:hover::before {
-  width: 300px;
-  height: 300px;
 }
 
 .checkout-btn:hover {
-  background: var(--success);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(0.2rem);
+  box-shadow: var(--button-shadow);
 }
 
 .checkout-btn:active {
   transform: translateY(0);
 }
 
-.checkout-btn:disabled {
-  background: var(--text-light);
-  cursor: not-allowed;
-  transform: none;
-}
-
 .continue-shopping {
   text-align: center;
+  margin: 10px;
   margin-top: 1rem;
 }
 
 .continue-shopping a {
-  color: var(--text-light);
+  color: black;
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 1rem;
   transition: color 0.2s ease;
 }
 
 .continue-shopping a:hover {
-  color: var(--accent);
-}
-
-.empty-cart {
-  text-align: center;
-  padding: 4rem 2rem;
-  color: var(--text-light);
-}
-
-.empty-cart-icon {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-  opacity: 0.5;
-}
-
-.clear-cart-btn {
-  background: none;
-  border: 1px solid var(--border);
-  color: var(--text-light);
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  margin-top: 1rem;
-  transition: all 0.2s ease;
-}
-
-.clear-cart-btn:hover {
-  border-color: #c44;
-  color: #c44;
+  text-decoration: underline;
 }

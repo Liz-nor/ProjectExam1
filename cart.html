@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="./css/pages/navbar.css" />
-    <link rel="stylesheet" href="./css/media.css" />
-    <link rel="stylesheet" href="./css/pages/cart.css" />
-    <link rel="stylesheet" href="./css/pages/footer.css" />
-    <link rel="import" href="./account/register.html" />
-    <link rel="import" href="./account/login.html" />
+    <link rel="stylesheet" href="../css/media.css" />
+    <link rel="stylesheet" href="../css/pages/cart.css" />
+    <link rel="stylesheet" href="../css/pages/footer.css" />
+    <link rel="import" href="../account/register.html" />
+    <link rel="import" href="../account/login.html" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -37,24 +37,30 @@
       href="https://fontawesome.com/icons/user?f=classic&s=solid"
     />
     <script type="module" src="/index.js" defer></script>
-    <script type="module" src="./carousel.js" defer></script>
-    <script type="module" src="./components/navbar.js" defer></script>
-    <script type="module" src="./components/cart.js"></script>
-    <script type="module" src="./components/cart-page.js" defer></script>
-    <script type="module" src="./components/footer.js" defer></script>
-    <title>
-      Shopping Cart
-    </title>
+    <script type="module" src="../carousel.js" defer></script>
+    <script type="module" src="../components/navbar.js" defer></script>
+    <script type="module" src="../components/cart.js"></script>
+    <script type="module" src="../components/cart-page.js" defer></script>
+    <script type="module" src="../components/footer.js" defer></script>
+    <title>Shopping Cart</title>
   </head>
   <body>
     <header id="navbar">
-      <label for="menu-checkbox" class="hamburger-icon">
-            <i class="fa-solid fa-bars"></i>
-          </label>
-      <input type="checkbox" id="menu-checkbox">
-      <nav class="nav-container">
+      <label
+        for="menu-checkbox"
+        class="hamburger-icon"
+        aria-label="Toggle navigation menu"
+      >
+        <i class="fa-solid fa-bars"></i>
+      </label>
+      <input
+        type="checkbox"
+        id="menu-checkbox"
+        aria-label="Navigation menu toggle"
+      />
+      <nav class="nav-container" aria-label="Main navigation">
         <div class="logo-container">
-          <a href="index.html">
+          <a href="index.html" aria-label="Home">
             <img src="../assets/1.png" class="logo" alt="Lènoir Lane logo" />
           </a>
         </div>
@@ -73,31 +79,42 @@
             </a>
           </li>
           <li class="auth-logged-in">
-            <button id="logout-btn" class="logout-btn">Logout</button>
+            <button
+              id="logout-btn"
+              class="logout-btn"
+              aria-label="Logout from account"
+            >
+              Logout
+            </button>
           </li>
         </ul>
       </nav>
     </header>
-    <div class="container">
-        <h1 class="header">Your Cart</h1>
-        <p class="cart-comment">Review your items and proceed to checkout</p>
-    <div class="cart-wrapper">
-      <div class="cart-items" id="cartItems"></div>
-    </div>
-    <div class="summary">
-      <h2 class="summary-title">Order Summary</h2>
-      <div class="summary-row total">
-        <span>Total</span>
-        <span class="summary-value" id="total">$0.00</span>
+    <div class="cart-container">
+      <h1 class="header">Your Cart</h1>
+      <p class="cart-comment">Review your items and proceed to checkout</p>
+      <div class="cart-wrapper">
+        <div class="cart-items" id="cartItems"></div>
+        <div class="summary">
+          <h2 class="summary-title">Order Summary</h2>
+          <div class="summary-row total">
+            <span>Total</span>
+            <span class="summary-value" id="total">$0.00</span>
+          </div>
+          <button
+            class="checkout-btn"
+            id="checkoutBtn"
+            aria-label="Proceed to checkout page"
+          >
+            Proceed to Checkout
+          </button>
+        </div>
+      </div>
+      <div class="continue-shopping">
+        <a href="/index.html" id="continueShoppingBtn">Continue Shopping</a>
       </div>
     </div>
-    <button class="checkout-btn" id="checkoutBtn"> Proceed to Checkout</button>
-    <div class="continue-shopping">
-      <a href="/index.html" id="continueShoppingBtn">&#8592Continue Shopping</a>
-    </div>
-    </div>
-    <main>
-    </main>
+    <main></main>
   </body>
   <div id="footer"></div>
 </html>

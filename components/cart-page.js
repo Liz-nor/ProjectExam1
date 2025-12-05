@@ -22,8 +22,10 @@ function renderCart() {
                 alt="${item.title}"
                 onerror="this.src='https://via.placeholder.com/100?text=No+Image'">
             <div class="item-details">
-                <div class="item-name">${item.title}</div>
-                <div class="item-price">$${(item.price || 0).toFixed(2)}</div>
+                <div class="item-name">
+                <h3>${item.title}</h3></div>
+                <div class="item-price">
+                <p>$${(item.price || 0).toFixed(2)}</p></div>
             </div>
             <div class="item-controls">
                 <div class="quantity-control">
@@ -88,7 +90,7 @@ function updateSummary() {
 function handleCheckout() {
   const cart = loadCart();
   if (cart.length === 0) {
-    alert("Your cart i empty!");
+    alert("Your cart is empty!");
     return;
   }
 

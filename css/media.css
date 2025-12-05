@@ -1,3 +1,8 @@
+@media (max-width: 1100px) {
+  .signup-wrapper {
+    width: min(600px, 100%);
+  }
+}
 @media (max-width: 830px) {
   #navbar {
     width: 100%;
