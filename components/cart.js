@@ -147,6 +147,7 @@ export function renderCart() {
 let cartPanel;
 
 export function initCartUI() {
+  const base = "/ProjectExam1";
   cartPanel = document.getElementById("cart");
   const cartItemsEl = document.getElementById("cart-items");
   const cartIcon = document.querySelector(".cart-icon");
