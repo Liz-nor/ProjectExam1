@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const footerContainer = document.getElementById("footer");
 
   if (!footerContainer) return;
-  const base = "/PROJECTEXAM1";
+  const base = "/ProjectExam1";
 
   footerContainer.innerHTML = `
     <footer class="footer">
