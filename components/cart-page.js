@@ -19,7 +19,7 @@ function renderCart() {
         <div class="cart-item">
             <img class="item-image" 
                 src="${item.image}" 
-                alt="${item.title}" />
+                alt="${item.title}" >
             <div class="item-details">
                 <div class="item-name">
                 <h3>${item.title}</h3></div>

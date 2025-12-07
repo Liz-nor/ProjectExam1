@@ -34,11 +34,11 @@
       rel="stylesheet"
       href="https://fontawesome.com/icons/user?f=classic&s=solid"
     />
-    <script type="module" src="index.js" defer></script>
-    <script type="module" src="./carousel.js" defer></script>
-    <script type="module" src="./components/navbar.js" defer></script>
-    <script type="module" src="./components/cart.js" defer></script>
-    <script type="module" src="./components/footer.js" defer></script>
+    <script src="index.js" defer></script>
+    <script src="./carousel.js" defer></script>
+    <script src="./components/navbar.js" defer></script>
+    <script src="./components/cart.js" defer></script>
+    <script src="./components/footer.js" defer></script>
     <title>
       Browse our exclusive products and fill your everyday life with a little
       more glamour
@@ -48,7 +48,7 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <header id="navbar">
       <input type="checkbox" id="menu-checkbox" />
-      <label for="menu-checkbox" class="hamburger-icon" aria-label="Toggle navigation menu">
+      <label for="menu-checkbox" class="hamburger-icon">
         <i class="fa-solid fa-bars"></i
       ></label>
       <nav class="nav-container">
@@ -75,7 +75,12 @@
             <button id="logout-btn" class="logout-btn">Logout</button>
           </li>
         </ul>
-        <div class="cart-icon auth-logged-in" role="button" tabindex="0" aria-label="Shopping cart">
+        <div
+          class="cart-icon auth-logged-in"
+          role="button"
+          tabindex="0"
+          aria-label="Shopping cart"
+        >
           <img
             src="./assets/cart-shopping-svgrepo-com.svg"
             class="shopping-cart"

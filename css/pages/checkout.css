@@ -102,7 +102,6 @@ input {
   outline: none;
 }
 .c-details {
-  display: flex;
   width: 100%;
   gap: 20px;
   margin: 20px 0;
@@ -116,7 +115,7 @@ input {
   height: 20px;
   margin-top: 10px;
   padding: 12px;
-  width: 100%;
+  width: 95%;
 }
 .c-details .cvv-box {
   border: 1px solid #aaa;
@@ -130,14 +129,11 @@ input {
   width: 100%;
 }
 .cc-cvv {
-  width: 100%;
+  width: 80%;
   gap: 5px;
 }
-.force {
-  padding-left: 15px;
-}
 .email input {
-  width: 95%;
+  width: 100%;
   border: 1px solid #aaa;
   border-radius: var(--rounded-corners);
   padding: 12px;
