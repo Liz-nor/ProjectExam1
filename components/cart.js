@@ -186,13 +186,13 @@ export function initCartUI() {
 
   if (cartBtn) {
     cartBtn.addEventListener("click", () => {
-      window.location.href = "../account/cart.html";
+      window.location.href = "${base}/account/cart.html";
     });
   }
 
   if (checkoutBtn) {
     checkoutBtn.addEventListener("click", () => {
-      window.location.href = "../account/checkout.html";
+      window.location.href = "${base}/account/checkout.html";
     });
   }
 }
