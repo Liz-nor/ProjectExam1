@@ -30,7 +30,13 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.removeItem("isLoggedIn");
       localStorage.removeItem("userEmail");
       updateNavAuthState();
-      window.location.href = "../index.html";
+      // Check if we're already on index.html in root, otherwise go to ../index.html
+      const currentPath = window.location.pathname;
+      if (currentPath.endsWith("/index.html") || currentPath.endsWith("/")) {
+        window.location.reload();
+      } else {
+        window.location.href = "../index.html";
+      }
     });
   }
 });
