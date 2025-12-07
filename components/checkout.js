@@ -1,3 +1,4 @@
+import { loadCart } from "./cart.js";
 const tColorA = document.getElementById("tColorA");
 const tColorB = document.getElementById("tColorB");
 const tColorC = document.getElementById("tColorC");
@@ -7,30 +8,30 @@ const iconC = document.querySelector(".fa-wallet");
 const cDetails = document.querySelector(".c-details");
 
 function doFun() {
-  tColorA.style.color = "greenyellow";
+  tColorA.style.color = "#50c878";
   tColorB.style.color = "gray";
   tColorC.style.color = "gray";
-  iconA.style.color = "greenyellow";
+  iconA.style.color = "#50c878";
   iconB.style.color = "gray";
   iconC.style.color = "gray";
   cDetails.style.display = "block";
 }
 function doFunA() {
   tColorA.style.color = "gray";
-  tColorB.style.color = "greenyellow";
+  tColorB.style.color = "#50c878";
   tColorC.style.color = "gray";
   iconA.style.color = "gray";
-  iconB.style.color = "greenyellow";
+  iconB.style.color = "#50c878";
   iconC.style.color = "gray";
   cDetails.style.display = "none";
 }
 function doFunB() {
   tColorA.style.color = "gray";
   tColorB.style.color = "gray";
-  tColorC.style.color = "greenyellow";
+  tColorC.style.color = "#50c878";
   iconA.style.color = "gray";
   iconB.style.color = "gray";
-  iconC.style.color = "greenyellow";
+  iconC.style.color = "#50c878";
   cDetails.style.display = "none";
 }
 
@@ -77,3 +78,40 @@ cvv.addEventListener("input", function (e) {
     cvvBox.style.border = "1px solid #aaa";
   }
 });
+
+const submitBtn = document.getElementById("submitBtn");
+submitBtn.addEventListener("click", (e) => {
+  window.location.href = "./success.html";
+});
+
+// Display cart total
+function displayOrderSummary() {
+  const cart = loadCart();
+  const orderDetails = document.querySelector(".right");
+  if (!orderDetails) return;
+
+  // Clear existing content except title
+  orderDetails.innerHTML =
+    '<div style="padding: 30px 0 0 30px;">Order Summary</div>';
+
+  if (cart.length === 0) {
+    orderDetails.innerHTML += "<div>Your cart is empty.</div>";
+    return;
+  }
+  let total = 0;
+
+  // Display each item in the cart
+  cart.forEach((item) => {
+    const subTotal = item.price * item.qty;
+    total += subTotal;
+
+    orderDetails.innerHTML += `<div style="padding: 30px 0 0 30px;">${
+      item.title
+    } (x${item.qty}): $${subTotal.toFixed(2)}</div>`;
+  });
+  orderDetails.innerHTML += `<div style="font-weight: bold; padding: 30px 0 0 30px;">Total: $${total.toFixed(
+    2
+  )}</div>`;
+}
+
+displayOrderSummary();

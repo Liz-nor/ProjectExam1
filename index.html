@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/pages/navbar.css" />
-    <link rel="stylesheet" href="./css/media.css" />
     <link rel="stylesheet" href="./css/pages/cart.css" />
     <link rel="stylesheet" href="./css/pages/footer.css" />
-    <link rel="import" href="./account/register.html" />
-    <link rel="import" href="./account/login.html" />
+    <link rel="stylesheet" href="./css/media.css" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -37,19 +35,20 @@
       href="https://fontawesome.com/icons/user?f=classic&s=solid"
     />
     <script type="module" src="index.js" defer></script>
-    <script type="module" src="../carousel.js" defer></script>
-    <script type="module" src="../components/navbar.js" defer></script>
-    <script type="module" src="../components/cart.js" defer></script>
-    <script type="module" src="../components/footer.js" defer></script>
+    <script type="module" src="./carousel.js" defer></script>
+    <script type="module" src="./components/navbar.js" defer></script>
+    <script type="module" src="./components/cart.js" defer></script>
+    <script type="module" src="./components/footer.js" defer></script>
     <title>
       Browse our exclusive products and fill your everyday life with a little
       more glamour
     </title>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <header id="navbar">
       <input type="checkbox" id="menu-checkbox" />
-      <label for="menu-checkbox" class="hamburger-icon">
+      <label for="menu-checkbox" class="hamburger-icon" aria-label="Toggle navigation menu">
         <i class="fa-solid fa-bars"></i
       ></label>
       <nav class="nav-container">
@@ -68,7 +67,7 @@
             <a href="./account/register.html">Sign Up</a>
           </li>
           <li class="auth-logged-in">
-            <a href="./pages/my-account.html">
+            <a href="./pages/my-account.html" aria-label="My Account">
               <i class="fa-solid fa-user"></i>
             </a>
           </li>
@@ -76,7 +75,7 @@
             <button id="logout-btn" class="logout-btn">Logout</button>
           </li>
         </ul>
-        <div class="cart-icon auth-logged-in">
+        <div class="cart-icon auth-logged-in" role="button" tabindex="0" aria-label="Shopping cart">
           <img
             src="./assets/cart-shopping-svgrepo-com.svg"
             class="shopping-cart"
@@ -93,7 +92,7 @@
           <div class="imgHandbag">
             <img
               src="./assets/img/handbag_1.jpg"
-              alt=""
+              alt="Woman holding red handbag"
               id="imgHandbag"
               data-id="3b43b2e4-62b0-4c02-9166-dffa46a0388c"
             />
@@ -101,7 +100,7 @@
           <div class="imgHeadphones">
             <img
               src="./assets/img/headphones_2.jpg"
-              alt=""
+              alt="Person wearing headphones"
               id="imgHeadphones"
               data-id="159fdd2f-2b12-46de-9654-d9139525ba87"
             />
@@ -109,7 +108,7 @@
           <div class="imgPerfume">
             <img
               src="./assets/img/3.png"
-              alt=""
+              alt="Man using perfume "
               id="imgPerfume"
               data-id="109566af-c5c2-4f87-86cb-76f36fb8d378"
             />
@@ -126,7 +125,7 @@
         </button>
       </div>
     </div>
-    <main class="product-layout">
+    <main class="product-layout" id="main-content">
       <aside class="product-layout__sidebar product-layout__sidebar--left">
         <h2>Lènoir Lane</h2>
         <p>
@@ -167,6 +166,6 @@
         </div>
       </div>
     </main>
+    <div id="footer"></div>
   </body>
-  <div id="footer"></div>
 </html>

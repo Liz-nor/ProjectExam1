@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/pages/products.css" />
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/pages/navbar.css" />
     <link rel="stylesheet" href="../css/pages/cart.css" />
     <link rel="stylesheet" href="../css/pages/footer.css" />
+    <link rel="stylesheet" href="../css/pages/products.css" />
     <link rel="stylesheet" href="../css/media.css" />
     <link
       rel="apple-touch-icon"
@@ -39,9 +39,10 @@
     <title>Get a more detailed look on our products</title>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <header id="navbar">
       <input type="checkbox" id="menu-checkbox" />
-      <label for="menu-checkbox" class="hamburger-icon">
+      <label for="menu-checkbox" class="hamburger-icon" aria-label="Toggle navigation menu">
         <i class="fa-solid fa-bars"></i
       ></label>
       <nav class="nav-container">
@@ -60,7 +61,7 @@
             <a href="../account/register.html">Sign Up</a>
           </li>
           <li class="auth-logged-in">
-            <a href="../pages/my-account.html">
+            <a href="../pages/my-account.html" aria-label="My Account">
               <i class="fa-solid fa-user"></i>
             </a>
           </li>
@@ -68,7 +69,7 @@
             <button id="logout-btn" class="logout-btn">Logout</button>
           </li>
         </ul>
-        <div class="cart-icon auth-logged-in">
+        <div class="cart-icon auth-logged-in" role="button" tabindex="0" aria-label="Shopping cart">
           <img
             src="../assets/cart-shopping-svgrepo-com.svg"
             class="shopping-cart"
@@ -79,7 +80,7 @@
         <div></div>
       </nav>
     </header>
-    <main class="product-layout">
+    <main class="product-layout" id="main-content">
       <aside class="product-layout__sidebar product-layout__sidebar--left">
         <h2>Lènoir Lane</h2>
         <p>
@@ -91,7 +92,6 @@
           that define every creation under the Lènoir Lane name.
         </p>
       </aside>
-
       <div id="container" class="product-container"></div>
       <aside
         class="product-layout__sidebar product-layout__sidebar--right"
@@ -106,12 +106,12 @@
         <button id="go-to-checkout">Check-out</button>
       </div>
     </main>
-    <div id="modal" class="modal">
+    <div id="modal" class="modal hidden">
       <div class="modal-content">
-        <span class="modal-close">&times;</span>
-        <p id="modal-message"></p>
+        <span class="modal-close" role="button" tabindex="0" aria-label="Close modal">&times;</span>
+        <p id="modal-message">Product added to cart!</p>
       </div>
     </div>
+    <div id="footer"></div>
   </body>
-  <div id="footer"></div>
 </html>

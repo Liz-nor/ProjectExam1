@@ -1,0 +1,21 @@
+.background {
+  background-image: url(../../assets/img/alexander-fae-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  height: 100vh;
+}
+
+section.success-message {
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 150px 20px;
+}
+
+.continue-shopping {
+  color: black;
+  text-decoration: none;
+}
+.continue-shopping:hover {
+  text-decoration: underline;
+}

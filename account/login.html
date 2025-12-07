@@ -26,8 +26,8 @@
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/pages/validation.css" />
     <link rel="stylesheet" href="../css/pages/navbar.css" />
-    <link rel="stylesheet" href="../css/media.css" />
     <link rel="stylesheet" href="../css/pages/footer.css" />
+    <link rel="stylesheet" href="../css/media.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -42,6 +42,7 @@
     </script>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <header id="navbar">
       <input type="checkbox" id="menu-checkbox" />
       <label for="menu-checkbox" class="hamburger-icon">
@@ -61,7 +62,7 @@
         </ul>
       </nav>
     </header>
-    <div class="signup-wrapper">
+    <div class="signup-wrapper" id="main-content">
       <h1>Login</h1>
       <p id="error-messages"></p>
       <form id="form">
@@ -118,10 +119,10 @@
     </div>
     <div id="modal" class="modal">
       <div class="modal-content">
-        <span class="modal-close">&times;</span>
+        <span class="modal-close" role="button" tabindex="0" aria-label="Close modal">&times;</span>
         <p id="modal-message"></p>
       </div>
     </div>
+    <div id="footer"></div>
   </body>
-  <div id="footer"></div>
 </html>

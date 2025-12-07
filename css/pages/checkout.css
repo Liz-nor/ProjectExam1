@@ -7,14 +7,17 @@
   background-color: white;
   display: flex;
   margin: 50px auto;
-  width: 80%;
+  max-width: 1200px;
+  width: 95%;
   height: auto;
   border: 1px solid var(--secondary-color-dark);
+  box-sizing: border-box;
 }
 
 .left {
   width: 35%;
   font-weight: bold;
+  box-sizing: border-box;
 }
 
 .left p {
@@ -55,7 +58,6 @@
   width: 50%;
   border-right: 1px solid #ccc;
   border-left: 1px solid #ccc;
-  height: 100vh;
 }
 .center img {
   width: 60px;
@@ -65,6 +67,9 @@
 }
 .right {
   width: 35%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 .right p {
   padding: 30px 20px;
@@ -73,11 +78,15 @@
 .details {
   padding: 20px 20px;
 }
+.description {
+  font-weight: bold;
+  padding: 3px 0;
+}
 .card-details {
-  padding: 20px 50px;
+  padding: 20px;
 }
 .card-details #cNumber {
-  width: 100%;
+  /* width: 100%; */
   border: 1px solid #aaa;
   border-radius: var(--rounded-corners);
   padding: 0 12px;
@@ -128,14 +137,14 @@ input {
   padding-left: 15px;
 }
 .email input {
-  width: 100%;
+  width: 95%;
   border: 1px solid #aaa;
   border-radius: var(--rounded-corners);
   padding: 12px;
   margin-top: 10px;
   height: 20px;
 }
-button {
+.card-details button[type="submit"] {
   width: 100%;
   height: 30px;
   background-color: var(--button-color);
@@ -146,10 +155,15 @@ button {
   font-size: 1rem;
   font-weight: bold;
   color: black;
-  margin-top: 20px;
+  margin: 20px 0;
 }
-button:hover {
-  background-color: #444;
-  color: white;
+.card-details button[type="submit"]:hover {
   cursor: pointer;
+}
+.backBtn {
+  text-decoration: none;
+  color: black;
+  margin: 10px;
+  padding: 10px;
+  display: inline-block;
 }

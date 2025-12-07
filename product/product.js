@@ -5,9 +5,37 @@ import {
   renderCart,
 } from "../components/cart.js";
 import "../components/navbar.js"; // --- Importing the navbar component to be used on the page
-
 const API_URL = "https://v2.api.noroff.dev/online-shop"; // --- Base API URL
 const container = document.querySelector("#container"); // --- Container to hold the product details
+
+function showModal(message) {
+  // Create modal elements
+  const modal = document.getElementById("modal");
+  const modalMessage = document.getElementById("modal-message");
+  const closeBtn = document.querySelector(".modal-close");
+
+  if (!modal || !modalMessage) return;
+
+  modalMessage.textContent = message;
+  modal.classList.remove("hidden");
+
+  const closeModal = () => {
+    modal.classList.add("hidden");
+  };
+
+  closeBtn.onclick = closeModal;
+
+  window.onclick = (event) => {
+    if (event.target === modal) {
+      closeModal();
+    }
+  };
+
+  // Auto-close after 2 seconds
+  setTimeout(() => {
+    closeModal();
+  }, 2000);
+}
 
 async function handleShareClick(shareUrl, product) {
   if (navigator.share) {
@@ -137,7 +165,7 @@ async function fetchAndCreateProducts() {
     description.className = "product-description";
     cartBtn.className = "goToCart";
     cartBtn.textContent = "Go To Cart";
-    cartBtn.href = "../cart.html";
+    cartBtn.href = "../account/cart.html";
     backButton.className = "back-button";
     backButton.textContent = "Back to products";
     backButton.href = "../index.html";
@@ -258,7 +286,7 @@ async function fetchAndCreateProducts() {
     productDiv.appendChild(description);
     productDiv.appendChild(rating);
     productDiv.appendChild(reviews);
-    productDiv.appendChild(cartBtn);
+    if (isLoggedIn) productDiv.appendChild(cartBtn);
     productDiv.appendChild(backButton);
     shareButton.appendChild(tooltip);
 

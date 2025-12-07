@@ -143,8 +143,11 @@ export function renderCart() {
   cartTotalEl.textContent = `Total: $${total.toFixed(2)}`; // --- Update total price
 }
 
+// --- Declare cartPanel globally so it can be accessed by event listeners
+let cartPanel;
+
 export function initCartUI() {
-  const cartPanel = document.getElementById("cart");
+  cartPanel = document.getElementById("cart");
   const cartItemsEl = document.getElementById("cart-items");
   const cartIcon = document.querySelector(".cart-icon");
   const clearBtn = document.getElementById("clear-cart");
@@ -183,7 +186,7 @@ export function initCartUI() {
 
   if (cartBtn) {
     cartBtn.addEventListener("click", () => {
-      window.location.href = "../cart.html";
+      window.location.href = "../account/cart.html";
     });
   }
 
@@ -193,3 +196,12 @@ export function initCartUI() {
     });
   }
 }
+document.addEventListener("click", (e) => {
+  if (!cartPanel) return;
+
+  if (cartPanel.classList.contains("hidden")) return;
+
+  if (!cartPanel.contains(e.target) && !e.target.closest(".cart-icon")) {
+    cartPanel.classList.add("hidden");
+  }
+});

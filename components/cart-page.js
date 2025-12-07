@@ -93,13 +93,13 @@ function handleCheckout() {
     return;
   }
 
-  window.location.href = "./account/checkout.html";
+  window.location.href = "./checkout.html";
 }
 
 function handleContinueShopping(e) {
   e.preventDefault();
 
-  window.location.href = "./index.html";
+  window.location.href = "../index.html";
 }
 
 function init() {

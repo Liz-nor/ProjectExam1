@@ -24,8 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
   inspectBtn.addEventListener("click", () => {
     const productId = getActiveProductId();
     window.location.href = `./product/product.html?id=${productId}`;
-    // const productUrl = `/product/product.html?id=${productId}`;
-    // window.location.href = productUrl;
   });
 });
 

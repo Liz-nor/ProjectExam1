@@ -14,7 +14,6 @@
     flex-direction: column;
   }
   .product-layout__sidebar--right {
-    width: 100%;
     height: auto;
   }
   /* Hamburger menu */
@@ -121,23 +120,30 @@
   }
   /*Checkout page*/
   #productContainer {
-    flex: flex;
+    display: flex;
     flex-direction: column;
-    height: auto;
+    height: fit-content;
   }
   .left {
     order: 1;
-    width: 100%;
+    width: 100% !important;
   }
   .center {
-    order: 2;
-    width: 100%;
+    order: 3;
+    width: 100% !important;
     border: none;
+    padding: 20px 0;
     height: auto;
   }
+  .card-details {
+    padding: 20px;
+  }
+  .c-details {
+    flex-direction: column;
+  }
   .right {
-    order: 3;
-    width: 100%;
+    order: 2;
+    width: 100% !important;
   }
   .force {
     padding-left: 0 !important;
