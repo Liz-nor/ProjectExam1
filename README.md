@@ -1,10 +1,9 @@
-Project Title
-A short sentence describing what the project is about.
+Project Exam
+This project is a website for a newly started company selling high-end products all over the world.
 
-📸 Screenshot
-Add a screenshot of your project here (you can drag an image into GitHub or link it).
 
-Project Screenshot
+<img width="1902" height="908" alt="image" src="https://github.com/user-attachments/assets/78d24057-5499-4861-8488-675638378d6e" />
+
 
 🛠️ Built With
 List the main tools and technologies used in this project:
@@ -30,6 +29,6 @@ License
 MIT License
 
 Contact
-Your Name - @twitter_handle - email@email_client.com
+LinkedIn: https://www.linkedin.com/in/lise-ervik-9b688b237/
 
 Project Link: https://github.com/liz-nor/ProjectExam1
