@@ -1,34 +1,34 @@
 import { loadCart } from "./cart.js";
-const tColorA = document.getElementById("tColorA");
-const tColorB = document.getElementById("tColorB");
-const tColorC = document.getElementById("tColorC");
+const methodA = document.getElementById("methodA");
+const methodB = document.getElementById("methodB");
+const methodC = document.getElementById("methodC");
 const iconA = document.querySelector(".fa-credit-card");
 const iconB = document.querySelector(".fa-building-columns");
 const iconC = document.querySelector(".fa-wallet");
 const cDetails = document.querySelector(".c-details");
 
 function doFun() {
-  tColorA.style.color = "#50c878";
-  tColorB.style.color = "gray";
-  tColorC.style.color = "gray";
+  methodA.style.color = "#50c878";
+  methodB.style.color = "gray";
+  methodC.style.color = "gray";
   iconA.style.color = "#50c878";
   iconB.style.color = "gray";
   iconC.style.color = "gray";
   cDetails.style.display = "block";
 }
 function doFunA() {
-  tColorA.style.color = "gray";
-  tColorB.style.color = "#50c878";
-  tColorC.style.color = "gray";
+  methodA.style.color = "gray";
+  methodB.style.color = "#50c878";
+  methodC.style.color = "gray";
   iconA.style.color = "gray";
   iconB.style.color = "#50c878";
   iconC.style.color = "gray";
   cDetails.style.display = "none";
 }
 function doFunB() {
-  tColorA.style.color = "gray";
-  tColorB.style.color = "gray";
-  tColorC.style.color = "#50c878";
+  methodA.style.color = "gray";
+  methodB.style.color = "gray";
+  methodC.style.color = "#50c878";
   iconA.style.color = "gray";
   iconB.style.color = "gray";
   iconC.style.color = "#50c878";
@@ -36,9 +36,9 @@ function doFunB() {
 }
 
 // Add click event listeners
-tColorA.addEventListener("click", doFun);
-tColorB.addEventListener("click", doFunA);
-tColorC.addEventListener("click", doFunB);
+methodA.addEventListener("click", doFun);
+methodB.addEventListener("click", doFunA);
+methodC.addEventListener("click", doFunB);
 const cNumber = document.getElementById("number");
 cNumber.addEventListener("keyup", function (e) {
   let num = cNumber.value.replace(/\s/g, ""); // Remove non-digit characters
@@ -79,10 +79,15 @@ cvv.addEventListener("input", function (e) {
   }
 });
 
-const submitBtn = document.getElementById("submitBtn");
-submitBtn.addEventListener("click", (e) => {
-  window.location.href = "./success.html";
-});
+const form = document.querySelector("form");
+if (form) {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    // Clear the cart after successful checkout
+    localStorage.removeItem("cart");
+    window.location.href = "./success.html";
+  });
+}
 
 // Display cart total
 function displayOrderSummary() {
